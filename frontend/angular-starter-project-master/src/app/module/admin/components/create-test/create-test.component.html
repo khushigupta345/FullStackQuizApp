@@ -1,0 +1,41 @@
+<!-- <div class="signup-container">
+  <h2>Create Quiz</h2>
+  <form [formGroup]="testForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="title">Quiz Title:</label>
+      <input type="title" id="title" name="title" placeholder="Enter title"  formControlName="title" />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" name="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="time">Start Time:</label>
+      <input type="datetime-local" id="time" formControlName="time" name="startTime" required />
+    </div>
+
+    <button type="submit">Create Quiz</button>
+  </form>
+</div> -->
+<div class="signup-container">
+  <h2>Quiz</h2>
+  <form [formGroup]="testForm"(ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="title">Quiz Title:</label>
+      <input type="title" id="title" name="title" placeholder="Enter your title"  formControlName="title">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" name="description"></textarea>
+    </div>
+    <div>
+    <label for="time">Time:</label>
+      <input type="number" id="time" formControlName="time" name="time"  />
+    </div>
+
+    <button type="submit" >Submit</button>
+  </form>
+</div>

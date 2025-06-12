@@ -1,0 +1,39 @@
+
+<div *ngIf="isUserLoggedIn">
+  <div class="navbar">
+    <ul>
+      <li><a routerLink="/user/dashboard">Dashboard</a></li>
+      <li><a routerLink="/user/view-test-results">View Result</a></li>
+      <li><button (click)="logout()" style="color: aliceblue;">Logout</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Admin Navbar -->
+<div *ngIf="isAdminLoggedIn">
+  <div class="navbar">
+    <ul>
+      <li><a routerLink="/admin/dashboard">Dashboard</a></li>
+      <li><a routerLink="/admin/create-test">Create Quiz</a></li>
+      <li><a routerLink="/admin/view-test-result">View Results</a></li>
+      <li><button (click)="logout()" style="color: aliceblue;">Logout</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Guest Navbar -->
+<div *ngIf="!isUserLoggedIn && !isAdminLoggedIn">
+  <div class="navbar">
+    <ul>
+      <li><a routerLink="/register">Sign Up</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/todo">ToDo</a></li>
+    </ul>
+  </div>
+
+  
+</div>
+
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,22 @@
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name"  formControlName="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email"  formControlName="email">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="password"  formControlName="password">
+      </div>
+  
+      <button type="submit" >Sign Up</button>
+    </form>
+  </div>
+  

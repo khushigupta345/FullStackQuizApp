@@ -1,0 +1,39 @@
+/* Navbar style */
+.navbar {
+    background-color:black;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.navbar ul li {
+    /* margin: 0 20px; */
+}body{
+    background-image:url('assets/images/quiz.jpg') ;
+background-size: cover;
+height: 3000000px;
+width: 100%;
+} 
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    /* padding: 8px 16px; */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #45a049;
+}
+
+.navbar a.active {
+    font-weight: bold;
+    background-color:black;
+}

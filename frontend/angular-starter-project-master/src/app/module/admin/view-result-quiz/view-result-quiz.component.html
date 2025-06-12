@@ -1,0 +1,27 @@
+<div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Result id</th>
+          <th>Quiz Id</th>
+          <!-- <th>User Name</th> -->
+          <th>User Id</th>
+          <th>Total Questions</th>
+          <th>Correct Answers</th>
+          <th>Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of resultData">
+            
+          <td>{{data.id}}</td>
+          <td>{{data.quizId}}</td>
+          <!-- <td>{{data.userName}}</td> -->
+          <td>{{data.userId}}</td>
+          <td>{{data.totalQuestion}}</td>
+          <td>{{data.correctAnswers}}</td>
+          <td>{{data.percentage}}%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

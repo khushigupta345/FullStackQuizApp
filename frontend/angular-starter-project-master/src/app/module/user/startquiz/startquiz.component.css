@@ -1,0 +1,76 @@
+/* Container for the quizzes */
+.quiz-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+  
+  /* Quiz List */
+  .quiz-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .quiz-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .quiz-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .quiz-item h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .quiz-item p {
+    font-size: 1.1em;
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  /* Quiz Button */
+  button{
+    margin: 5px;
+    padding: 3px;
+    background-color: green;
+    border-radius: 1px;
+  }
+  
+  /* .quiz-item button {
+    background-color: #4CAF50;
+    margin:  20px;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #45a049;
+  }
+  
+  .quiz-item button:hover {
+    background-color: #45a049;
+  
+  
+  } */

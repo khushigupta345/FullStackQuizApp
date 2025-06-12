@@ -1,0 +1,14 @@
+<div class="quiz-container">
+    <h1>Available Quizzes</h1>
+    <div class="quiz-list">
+      <div class="quiz-item" *ngFor="let quiz of quizzes">
+        <h2>{{ quiz.title }}</h2>
+        <p>{{ quiz.description }}</p>
+        <p>{{ getFormattedTime( quiz.time) }}</p>
+  
+        
+         <button routerLink="/user/take-test/{{quiz.id}}">Start Quiz</button> 
+        
+</div>
+    </div>
+  </div> 

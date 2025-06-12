@@ -1,0 +1,40 @@
+<div class="quiz-container">
+    <h1>Available Question</h1>
+    <div class="quiz-list">
+<div *ngFor="let question of questions" class="question">
+    <h4>{{ question.questionText }}</h4>
+    
+    <!-- Wrap *ngFor and *ngIf with ng-container -->
+      <div >
+        <label>
+           <input type="radio" name="question{{ question.id }}"  />
+          {{ question.optionA }}
+        </label>
+      </div>
+      <div >
+        <label>
+           <input type="radio" name="question{{ question.id }}"  />
+          {{ question.optionB }}
+        </label>
+      </div>
+      <div >
+        <label>
+           <input type="radio" name="question{{ question.id }}"  />
+          {{ question.optionC}}
+        </label>
+      </div>
+      <div >
+        <label>
+           <input type="radio" name="question{{ question.id }}"  />
+          {{ question.optionD}}
+        </label>
+      </div>
+            <!-- <label >Correct :</label>
+          <h1 style="color: green;">
+          {{ question.correctOption}}
+        </h1> -->
+  
+   
+
+
+  </div></div></div>

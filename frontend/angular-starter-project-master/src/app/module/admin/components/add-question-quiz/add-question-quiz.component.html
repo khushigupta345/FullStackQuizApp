@@ -1,0 +1,40 @@
+
+<div class="container mt-4">
+    <h2 class="text-center">Add Question</h2>
+    
+    <form [formGroup]="validateForm" (ngSubmit)="submitQuestion()" class="card p-4 shadow-sm">
+      
+      <!-- Question Input -->
+      <div class="form-group">
+        <label class="fw-bold">Enter Question Text:</label>
+        <input type="text"  name="questionText"  placeholder="Enter your question" formControlName="questionText">
+      </div>
+  
+    
+      <div class="form-group">
+        <label class="fw-bold">optionA:</label>
+        <input type="text"  name="optionA"  placeholder="Enter your optionA" formControlName="optionA">
+      </div>
+      <div class="form-group">
+        <label class="fw-bold">optonB:</label>
+        <input type="text"  name="optionB"  placeholder="Enter your optionB" formControlName="optionB">
+      </div>
+      <div class="form-group">
+        <label class="fw-bold">optonC:</label>
+        <input type="text"  name="optionC"  placeholder="Enter your optonB" formControlName="optionC">
+      </div>
+      <div class="form-group">
+        <label class="fw-bold">optionD:</label>
+        <input type="text"  name="optionD"  placeholder="Enter your optonBC" formControlName="optionD">
+      </div>
+      <div class="form-group">
+        <label class="fw-bold">correctOption:</label>
+        <input type="text"  name="correctOption"  placeholder="Enter your correctOption" formControlName="correctOption">
+      </div>
+
+  
+      <!-- Submit Question Button -->
+      <button type="submit" class="btn btn-success mt-3">Submit Question</button>
+  
+    </form>
+  </div>
