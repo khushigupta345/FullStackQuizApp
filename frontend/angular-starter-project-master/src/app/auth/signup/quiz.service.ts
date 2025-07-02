@@ -54,14 +54,12 @@ submitQuiz(data:any):Observable<any>{
 getQuizResult():Observable<any>{
   return this.http.get(`${this.apiUrl}/api/admin/test-result`)
 }
-// constructor(private http: HttpClient, private storageService: StorageService) {}
 
 getResultById(): Observable<any> {
   const id = this.storageService.getUserId();
   return this.http.get(`${this.apiUrl}/api/user/test-result/${id}`);
 }
-// 
-// 
+
 deleteById(quizId: number): Observable<any> {
   return this.http.delete(`${this.apiUrl}/api/admin/delete/${quizId}`);
 }
@@ -75,39 +73,5 @@ updateQuiz(id:number, quizData:any):Observable<any> {
 googleLogin(token: string): Observable<any> {
   return this.http.post(`${this.apiUrl}/auth/login`, { token });
 }
-
-
-
-
-
-
-//   // Fix the string interpolation here
-//   // createQuiz(quiz: Quiz): Observable<any> {
-//   //   createQuiz(quiz: Quiz): Observable<any> {
-
-//   //   return this.http.post(`${this.apiUrl}/quizzes`, quiz);  // Use backticks for string interpolation
-//   // }
-
-//   getQuizzes(): Observable<any[]> {
-//     return this.http.get<any[]>(`${this.apiUrl}/api/player/getquiz`);
-//   }
-
-//   getQuizById(quizId: number): Observable<any> {
-//     return this.http.get<any>(`${this.apiUrl}/api/player/${quizId}/question`);
-//   }
-//   deleteById(quizId: number): Observable<any> {
-//     return this.http.delete(`${this.apiUrl}/delete/${quizId}`);
-//   }
-//   // 🟢 Quiz Create karega
-//   createQuiz(quiz: Quiz): Observable<Quiz> {
-//     return this.http.post<Quiz>(`${this.apiUrl}/quizzes`, quiz);
-//   }
-
-//   addQuestion(quizId: number, question:  Question ): Observable<any> {
-//     return this.http.post(`${this.apiUrl}/quizzes/{quizId}/questions`, question);
-//   }
-
-
-  
 
 }

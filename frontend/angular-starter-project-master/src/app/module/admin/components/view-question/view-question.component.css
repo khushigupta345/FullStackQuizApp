@@ -1,4 +1,4 @@
-/* Container for the quizzes */
+
 .quiz-container {
     width: 80%;
     margin: 0 auto;
@@ -15,8 +15,7 @@
     font-size: 2.5em;
     margin-bottom: 30px;
   }
-  
-  /* Quiz List */
+
   .quiz-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -49,23 +48,7 @@
     margin-bottom: 15px;
   }
   
-  /* Quiz Button
-  .quiz-item button {
-    background-color: #4CAF50;
-    margin:  20px;
-    color: white;
-    padding: 3px 2px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
   
-  .quiz-item button:hover {
-    background-color: #45a049;
-  
-  
-  } */
   button{
     margin: 5px;
     padding: 3px;

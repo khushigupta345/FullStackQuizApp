@@ -18,11 +18,11 @@ export class EditquizComponent {
   constructor(private route: ActivatedRoute,private notification:NzNotificationService, private quizService: QuizService, private router: Router) {}
 
   ngOnInit() {
-    // Fetch the quiz ID from route parameters
+  
     this.quizId = +this.route.snapshot.paramMap.get('id');
     console.log(this.quizId);
     
-    // Fetch the quiz data based on quizId
+    
     this.quizService.getQuizById(this.quizId).subscribe(data => {
       this.quiz = data;
       console.log(this.quiz);
@@ -35,17 +35,12 @@ export class EditquizComponent {
   saveUpdatedQuiz() {
     console.log(this.quiz)
     this.quizService.updateQuiz(this.quiz.id, this.quiz).subscribe(
-    //   () => {
-    //     alert('Quiz updated successfully');
-    //     this.router.navigate(['/admin/dashboard']); 
-    //   },
-    //   () => alert('Failed to update quiz')
-    // );
-
+    
     res => {
 
  console.log(res)
       // this.notification.success('SUCCESS', 'quiz update successfully', { nzDuration: 5000 });
+      alert("quiz updated successfully")
       this.router.navigateByUrl('/admin/dashboard');
     },
     error => {

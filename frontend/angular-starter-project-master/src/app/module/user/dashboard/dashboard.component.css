@@ -1,4 +1,4 @@
-/* Body and General Layout */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f7f7f7;
@@ -7,7 +7,7 @@ body {
     box-sizing: border-box;
   }
   
-  /* Quiz Container */
+
   .quiz-container {
     width: 80%;
     max-width: 1200px;
@@ -25,15 +25,14 @@ body {
     margin-bottom: 30px;
   }
   
-  /* Quiz List */
+
   .quiz-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
     justify-items: center;
   }
-  
-  /* Quiz Item */
+ 
   .quiz-item {
     background-color: #f0f4f8;
     padding: 20px;
@@ -65,7 +64,7 @@ body {
     font-weight: bold;
   }
   
-  /* Buttons */
+
   button {
     background-color: #4CAF50;
     color: white;

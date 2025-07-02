@@ -12,9 +12,16 @@
     justify-content: space-around;
 }
 
-.navbar ul li {
-    /* margin: 0 20px; */
-}body{
+button{
+     color: white;
+    text-decoration: none;
+    font-size: 18px;
+   
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+}
+body{
     background-image:url('assets/images/quiz.jpg') ;
 background-size: cover;
 height: 3000000px;
@@ -24,7 +31,7 @@ width: 100%;
     color: white;
     text-decoration: none;
     font-size: 18px;
-    /* padding: 8px 16px; */
+   
     border-radius: 4px;
     transition: background-color 0.3s ease;
 }

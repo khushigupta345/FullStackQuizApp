@@ -23,7 +23,7 @@ export class AddQuestionQuizComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Initialize form group with validation
+   
     this.validateForm = this.fb.group({
       questionText: [null, [Validators.required]],
       optionA: [null, [Validators.required]],
@@ -33,14 +33,14 @@ export class AddQuestionQuizComponent implements OnInit {
       correctOption: [null, [Validators.required]]
     });
 
-    // Get quiz ID from the route parameter
+   
     this.id = this.ac.snapshot.params['id'] ? +this.ac.snapshot.params['id'] : null;
   }
 
-  // Submit question function
+
   submitQuestion(): void {
     if (this.validateForm.invalid) {
-      // If the form is invalid, stop the function
+     
       this.notification.error('ERROR', 'Please fill in all fields correctly.', { nzDuration: 5000 });
       return;
     }
@@ -48,15 +48,15 @@ export class AddQuestionQuizComponent implements OnInit {
     const questionDto = this.validateForm.value;
     questionDto.id = this.id;
 
-    // Call the service to add the question
+   
     this.quizService.addQuestion(questionDto).subscribe(
       (res) => {
-        // Show success notification
+        
         this.notification.success('SUCCESS', 'Question created successfully',{ nzDuration: 5000 });
         this.router.navigateByUrl('/admin/dashboard');
       },
       (error) => {
-        // Handle error and show notification
+      
         this.notification.error('ERROR', error?.message || 'An error occurred while adding the question.', { nzDuration: 5000 });
       }
     );

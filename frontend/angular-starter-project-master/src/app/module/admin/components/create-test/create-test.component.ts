@@ -20,16 +20,16 @@ export class CreateTestComponent {
   ) {}
 
   ngOnInit(): void {
-    // Initialize testForm correctly
+  
     this.testForm = this.fb.group({
-      title: [null, [Validators.required]],  // Adjust validation as needed
+      title: [null, [Validators.required]], 
       description: [null, [Validators.required]],
       time: [null, [Validators.required]],
     });
   }
 
   submitForm(): void {
-    // Check if the form is valid before submitting
+  
     if (this.testForm.valid) {
       this.quizService.createTest(this.testForm.value).subscribe(
         res => {
@@ -41,7 +41,7 @@ export class CreateTestComponent {
         }
       );
     } else {
-      // Handle case when the form is not valid
+     
       this.notification.error('ERROR', 'Please fill all the required fields correctly', { nzDuration: 5000 });
     }
   }

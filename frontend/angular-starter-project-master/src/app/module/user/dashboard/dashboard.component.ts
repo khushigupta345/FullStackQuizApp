@@ -33,15 +33,12 @@ quizzes=[];
     );
   }
 
-  // Corrected time formatting function
+
   getFormattedTime(time: number): string {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     return `${minutes} minutes ${seconds} seconds`;
   }
 
-  submitQuiz() {
-    // Implement your logic for "View Test" or "Add Question"
-  }
 
 }

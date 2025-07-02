@@ -4,7 +4,7 @@
     
     <form [formGroup]="validateForm" (ngSubmit)="submitQuestion()" class="card p-4 shadow-sm">
       
-      <!-- Question Input -->
+     
       <div class="form-group">
         <label class="fw-bold">Enter Question Text:</label>
         <input type="text"  name="questionText"  placeholder="Enter your question" formControlName="questionText">
@@ -33,7 +33,6 @@
       </div>
 
   
-      <!-- Submit Question Button -->
       <button type="submit" class="btn btn-success mt-3">Submit Question</button>
   
     </form>

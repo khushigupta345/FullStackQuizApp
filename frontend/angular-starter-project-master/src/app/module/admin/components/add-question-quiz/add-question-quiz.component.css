@@ -1,15 +1,9 @@
-
-
-
-
-/* Basic styling for the container */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
   }
   
-  /* Heading styling */
   h2.text-center {
     font-size: 24px;
     font-weight: bold;
@@ -17,7 +11,7 @@
     text-align: center;
   }
   
-  /* Form styling */
+
   .card {
     background-color: #f8f9fa;
     border-radius: 8px;
@@ -58,7 +52,6 @@
     transition: background-color 0.3s ease;
   }
   
-  /* Styling for submit button */
   button.btn-success {
     background-color: #28a745;
     color: white;
@@ -68,7 +61,7 @@
     background-color: #218838;
   }
   
-  /* Styling for Add Option Button */
+  
   button.btn-outline-primary {
     background-color: #f8f9fa;
     border: 1px solid #007bff;
@@ -80,7 +73,8 @@
     color: white;
   }
   
-  /* Error handling */
+  
+
   input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
     border-color: red;
   }
@@ -89,7 +83,6 @@
     border-color: green;
   }
   
-  /* Responsive design for small screens */
   @media (max-width: 768px) {
     .container {
       padding: 15px;

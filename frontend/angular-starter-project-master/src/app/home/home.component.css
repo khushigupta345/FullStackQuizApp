@@ -1,9 +1,4 @@
-/* .container {
-    background-image: url('/assets/images/quiz.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* This will make the background cover the entire screen 
-  */
+
   .container::before{
     content: "";
     background-image: url('/assets/images/quiz1.jpg');
@@ -22,19 +17,16 @@
   }
 button{
   background-color: palevioletred;margin-top:4vw; margin-left: 25vh;
+  border: 2px solid palevioletred;
+  border-radius: 6px;
 }
 
-   .container p
-  {
-
-    
-  }
+ 
   .container{
     width: 100%;
     height: 600px;
 
     padding: 80px 30px;
-    /* text-align: center; */
-    /* padding-left: 100px; */
+  
 
   }

@@ -32,11 +32,11 @@ export class LoginSuccessComponent {
         localStorage.setItem('user', JSON.stringify(user));
 this.storageService.saveUser(user);
 
-
-        // this.router.navigate(['/dashboard']);
-      } else {
-        // this.router.navigate(['/login']);
       }
+      //   // this.router.navigate(['/dashboard']);
+      // } else {
+      //   // this.router.navigate(['/login']);
+      // }
     });
   }
 }

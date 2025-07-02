@@ -1,4 +1,4 @@
-/* Body and General Layout */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f7f7f7;
@@ -6,8 +6,7 @@ body {
     padding: 0;
     box-sizing: border-box;
   }
-  
-  /* Quiz Container */
+ 
   .quiz-container {
     width: 80%;
     max-width: 1200px;
@@ -25,7 +24,7 @@ body {
     margin-bottom: 30px;
   }
   
-  /* Quiz List */
+
   .quiz-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -33,7 +32,7 @@ body {
     justify-items: center;
   }
   
-  /* Quiz Item */
+ 
   .quiz-item {
     background-color: #f0f4f8;
     padding: 20px;
@@ -66,42 +65,13 @@ body {
   }
   button{
     margin: 5px;
-    padding: 3px;
-    background-color:rgb(8, 0, 255);
-    border-radius: 1px;
-  }
-  
-  /* Buttons */
-  /*button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-right: 10px;
-  }
-  
-  button:hover {
+    padding: 4px;
     background-color: #45a049;
-    transform: translateY(-2px);
+
+    border-radius: 2px;
   }
   
-  button:focus {
-    outline: none;
-  }
   
-  /* Styling for Add Question button */
-  /*button:nth-child(2) {
-    background-color: #ff9800;
-  }
-  
-  button:nth-child(2):hover {
-    background-color: #fb8c00;
-  }
-  */
   /* Responsive Design */
   @media (max-width: 768px) {
     .quiz-container {

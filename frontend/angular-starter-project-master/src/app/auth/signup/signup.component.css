@@ -1,11 +1,11 @@
-/* Basic Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* Body styling */
+  
   body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
@@ -15,7 +15,7 @@
     height: 100vh;
   }
   
-  /* Sign Up Form Styling */
+  
   .signup-container {
     margin: auto;
     background-color: white;
@@ -23,7 +23,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     text-align: center;
   }
   
@@ -32,7 +32,6 @@
     color: #333;
   }
   
-  /* Form input fields */
   .form-group {
     margin-bottom: 15px;
     text-align: left;

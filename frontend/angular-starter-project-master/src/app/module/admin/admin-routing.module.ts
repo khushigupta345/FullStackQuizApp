@@ -13,7 +13,7 @@ import { EditquizComponent } from './components/editquiz/editquiz.component';
 
 
 const routes: Routes = [
-  // { path:'',redirectTo:'/dashboard'},
+
     { path:"dashboard",component:DashboardComponent},
   
    { path:"create-test",component:CreateTestComponent},

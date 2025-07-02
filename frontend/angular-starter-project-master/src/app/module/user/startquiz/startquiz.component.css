@@ -1,4 +1,4 @@
-/* Container for the quizzes */
+
 .quiz-container {
     width: 80%;
     margin: 0 auto;
@@ -16,7 +16,7 @@
     margin-bottom: 30px;
   }
   
-  /* Quiz List */
+  
   .quiz-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -48,8 +48,7 @@
     color: #777;
     margin-bottom: 15px;
   }
-  
-  /* Quiz Button */
+    /* Quiz Button */
   button{
     margin: 5px;
     padding: 3px;
@@ -57,20 +56,4 @@
     border-radius: 1px;
   }
   
-  /* .quiz-item button {
-    background-color: #4CAF50;
-    margin:  20px;
-    color: white;
-    padding: 10px 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: #45a049;
-  }
   
-  .quiz-item button:hover {
-    background-color: #45a049;
-  
-  
-  } */
