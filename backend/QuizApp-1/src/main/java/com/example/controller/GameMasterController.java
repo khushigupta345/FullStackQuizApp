@@ -1,5 +1,8 @@
 package com.example.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -80,15 +83,22 @@ public ResponseEntity<?> getallquizresult(){
 
 
 @DeleteMapping("delete/{id}")
-public ResponseEntity<String > DeleteQuiz(@PathVariable Long id){
-	try {
-		boolean isdeleted=q.deletequizbyid(id);
-	return  ResponseEntity.ok("delete successfully");
-	}catch(Exception e){
-	return	ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("something wentn wrong");
-		
-	}
-	
+public ResponseEntity<Map<String, String>> deleteQuiz(@PathVariable("id") Long id) {
+    Map<String, String> response = new HashMap<>();
+    try {
+        boolean isDeleted = q.deletequizbyid(id);
+        if (isDeleted) {
+            response.put("message", "Quiz deleted successfully");
+            return ResponseEntity.ok(response);
+        } else {
+            response.put("error", "Quiz not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+    } catch (Exception e) {
+        e.printStackTrace(); 
+        response.put("error", "Server error: " + e.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+    }
 }
 
 @GetMapping("quiz/{id}")
@@ -99,11 +109,15 @@ public ResponseEntity<QuizDTO > getquizbyid(@PathVariable Long id){
 }
 
 @PutMapping("/quizzes/{id}")
-public ResponseEntity<String> updateQuiz(@PathVariable Long id,@Valid @RequestBody QuizDTO updatedQuiz) {
-  if (q.updateQuiz(id, updatedQuiz)) {
-      return ResponseEntity.ok("Quiz updated successfully");
-  } else {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Quiz not found");
-  }
+public ResponseEntity<Map<String, String>> updateQuiz(@PathVariable Long id, @Valid @RequestBody QuizDTO updatedQuiz) {
+    Map<String, String> response = new HashMap<>();
+    
+    if (q.updateQuiz(id, updatedQuiz)) {
+        response.put("message", "Quiz updated successfully");
+        return ResponseEntity.ok(response);
+    } else {
+        response.put("error", "Quiz not found");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
 }
 }
