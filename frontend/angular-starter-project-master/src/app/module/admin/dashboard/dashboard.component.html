@@ -5,7 +5,7 @@
       <h2>{{ quiz.title }}</h2>
       <p>{{ quiz.description }}</p>
       <p>{{ getFormattedTime(quiz.time) }}</p>
-
+ 
       <button [routerLink]="['/admin/add-question', quiz.id]">Add Question</button>
       <button [routerLink]="['/admin/edit-quiz', quiz.id]">Edit Quiz</button>
       <button (click)="deleteQuiz(quiz.id)">Delete Quiz</button>
