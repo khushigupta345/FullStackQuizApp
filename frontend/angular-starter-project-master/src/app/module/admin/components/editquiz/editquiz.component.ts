@@ -7,7 +7,7 @@ import { QuizService } from 'src/app/auth/signup/quiz.service';
   templateUrl: './editquiz.component.html',
   styleUrls: ['./editquiz.component.css']
 })
-export class EditquizComponent {
+export class EditquizComponent implements OnInit {
 
   quizId: number;
   quiz: any = {
