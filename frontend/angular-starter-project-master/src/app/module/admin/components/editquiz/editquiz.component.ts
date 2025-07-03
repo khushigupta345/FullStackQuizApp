@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { QuizService } from 'src/app/auth/signup/quiz.service';
 
 @Component({
@@ -11,59 +10,56 @@ import { QuizService } from 'src/app/auth/signup/quiz.service';
 export class EditquizComponent {
 
   quizId: number;
-  quiz: any = {};  // Holds quiz data
+  quiz: any = {
+    title: '',
+    description: '',
+    time: 0
+  };
 
   constructor(
     private route: ActivatedRoute,
-    private notification: NzNotificationService,
     private quizService: QuizService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    //  Get quiz ID from route
-    this.quizId = +this.route.snapshot.paramMap.get('id');
-    console.log("Quiz ID from route:", this.quizId);
-
-    // Load quiz by ID
-    this.quizService.getQuizById(this.quizId).subscribe(
-      data => {
-        this.quiz = data;
-
-        //  Ensure ID is present even if backend doesn't return it
-        if (!this.quiz.id) {
-          this.quiz.id = this.quizId;
-        }
-
-        console.log("Loaded quiz:", this.quiz);
-      },
-      error => {
-        console.error("Error loading quiz:", error);
-        this.notification.error("Error", "Unable to load quiz");
-        this.router.navigateByUrl('/admin/dashboard');
-      }
-    );
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      this.quizId = Number(idParam);
+      this.loadQuiz(this.quizId);
+    } else {
+      alert('Invalid quiz ID in URL.');
+    }
   }
 
-  // Save updated quiz
+  loadQuiz(id: number) {
+    this.quizService.getQuizById(id).subscribe({
+      next: (res) => {
+        this.quiz = res;
+        console.log("Quiz loaded: ", this.quiz);
+      },
+      error: (err) => {
+        console.error("Failed to load quiz", err);
+        alert("Unable to load quiz.");
+      }
+    });
+  }
+
   saveUpdatedQuiz() {
-    if (!this.quiz.id) {
-      alert("Quiz ID missing, cannot update");
+    if (!this.quizId || !this.quiz.title || !this.quiz.description || !this.quiz.time) {
+      alert("Please fill all quiz fields correctly.");
       return;
     }
 
-    console.log("Submitting updated quiz:", this.quiz);
-
-    this.quizService.updateQuiz(this.quiz.id, this.quiz).subscribe(
-      res => {
-        alert("Quiz updated successfully");
-        this.router.navigateByUrl('/admin/dashboard');
+    this.quizService.updateQuiz(this.quizId, this.quiz).subscribe({
+      next: (res) => {
+        alert("Quiz updated successfully.");
+        this.router.navigateByUrl("/admin/dashboard");
       },
-      error => {
-        alert("Update failed");
-        console.error("Update error:", error);
-        this.router.navigateByUrl('/admin/dashboard');
+      error: (err) => {
+        console.error("Update failed", err);
+        alert("Quiz update failed.");
       }
-    );
+    });
   }
 }
