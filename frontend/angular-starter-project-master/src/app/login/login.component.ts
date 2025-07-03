@@ -5,9 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  
-loginWithGoogle(): void {
 
-window.location.href = 'http://localhost:8012/oauth2/authorization/google?prompt=consent%20select_account&access_type=offline';
+  loginWithGoogle(): void {
+    window.location.href = 'https://fullstackquizapp.onrender.com/oauth2/authorization/google?prompt=consent%20select_account&access_type=offline';
   }
 }
