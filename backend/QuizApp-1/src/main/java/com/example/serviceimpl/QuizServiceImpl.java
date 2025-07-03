@@ -33,6 +33,7 @@ import jakarta.transaction.Transactional;
 public class QuizServiceImpl implements QuizService {
 	@Autowired
 	private UserRepository userRepository;
+
 	@Autowired
 	private QuizResultRepository resultRepository;
 	@Autowired
@@ -129,26 +130,40 @@ public  List<QuizResultDTO> getallresultbyid(Long userId){
 	
 }
 
-//@Override
-//@Transactional
-//public boolean deletequizbyid(Long id) {
-//	if(qv.existsById(id)) {
-//		qv.deleteById(id);
-//		entityManager.createNativeQuery("Alter table QuizResult AUTO_INCREMENT=1").executeUpdate();
-//		return true;
-//	}
-//return false;
-//
-//	
-//}
+
+// @Override
+// @Transactional
+// public boolean deletequizbyid(Long id) {
+//     if (qv.existsById(id)) {
+//         qv.deleteById(id);
+        
+
+//         // Reset Auto-Increment only if table is empty
+//         if (qv.count() == 0) {
+//             entityManager.createNativeQuery("ALTER TABLE quiz AUTO_INCREMENT = 1").executeUpdate();
+//         }
+//         if (qestion.count() == 0) {
+//             entityManager.createNativeQuery("ALTER TABLE question AUTO_INCREMENT = 1").executeUpdate();
+//         }
+//         if (resultRepository.count() == 0) {
+//             entityManager.createNativeQuery("ALTER TABLE quiz_result AUTO_INCREMENT = 1").executeUpdate();
+//         }
+
+//         return true;
+//     }
+//     return false;
+// }
 @Override
 @Transactional
 public boolean deletequizbyid(Long id) {
     if (qv.existsById(id)) {
-        qv.deleteById(id);
-        
+        // 🔥 Delete all questions linked to this quiz first
+        qestion.deleteByQuizId(id);  // See Step 2
 
-        // Reset Auto-Increment only if table is empty
+        // Then delete the quiz
+        qv.deleteById(id);
+
+        // Optional: Reset auto-increments if needed
         if (qv.count() == 0) {
             entityManager.createNativeQuery("ALTER TABLE quiz AUTO_INCREMENT = 1").executeUpdate();
         }
@@ -163,7 +178,6 @@ public boolean deletequizbyid(Long id) {
     }
     return false;
 }
-
 public boolean updateQuiz(Long id, QuizDTO updatedQuizDto) {
     if (updatedQuizDto == null) return false; // Null check
 
