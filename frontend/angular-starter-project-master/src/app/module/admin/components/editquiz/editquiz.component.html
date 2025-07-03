@@ -1,14 +1,16 @@
 <h3 style="text-align: center;font-size: larger;font-weight: bold;">Edit Quiz</h3>
 <form (ngSubmit)="saveUpdatedQuiz()">
   <label for="name">Quiz id:</label>
-  <input type="text" [(ngModel)]="this.quiz.id" name="id" disabled>
-  <label for="title">title:</label>
-  <input type="text" [(ngModel)]="this.quiz.title" name="title" >
+  <input type="text" [(ngModel)]="quiz.id" name="id" disabled>
+
+  <label for="title">Title:</label>
+  <input type="text" [(ngModel)]="quiz.title" name="title" >
 
   <label for="description">Description:</label>
-  <input type="text" [(ngModel)]="this.quiz.description" name="description" >
+  <input type="text" [(ngModel)]="quiz.description" name="description" >
   
   <label for="time">Time:</label>
-  <input type="number" [(ngModel)]="this.quiz.time" name="time">
-   <button type="submit">Save</button>
+  <input type="number" [(ngModel)]="quiz.time" name="time">
+
+  <button type="submit">Save</button>
 </form>
