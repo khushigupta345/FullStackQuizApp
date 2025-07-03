@@ -10,7 +10,7 @@ import { StorageService } from 'src/app/storage.service';
 })
 export class QuizService {
 
-    private apiUrl = 'http://localhost:8012';
+    private apiUrl = 'https://fullstackquizapp.onrender.com';
     
 
   constructor(private http: HttpClient, private storageService: StorageService) {}
