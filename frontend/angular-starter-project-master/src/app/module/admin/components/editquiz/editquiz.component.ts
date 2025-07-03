@@ -50,15 +50,21 @@ console.log("Quiz ID converted = ", this.quizId);
 
  saveUpdatedQuiz() {
     console.log('Submitting updated quiz:', this.quiz);
-    this.quizService.updateQuiz(this.quizId, this.quiz).subscribe({
-      next: (res) => {
-        alert("Quiz updated successfully.");
-        this.router.navigateByUrl("/admin/dashboard");
-      },
-      error: (err) => {
-        console.error("Update failed", err);
-        alert("Quiz update failed.");
-      }
-    });
+   this.quizService.updateQuiz(this.quizId, this.quiz).subscribe({
+  next: () => {
+    alert("Quiz updated successfully.");
+    this.router.navigateByUrl("/admin/dashboard");
+  },
+  error: (err) => {
+    if (err.status === 200) {
+
+      alert("Quiz updated successfully (handled manually).");
+      this.router.navigateByUrl("/admin/dashboard");
+    } else {
+      console.error("Update failed", err);
+      alert("Quiz update failed.");
+    }
+  }
+});
   }
 }
