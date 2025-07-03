@@ -55,7 +55,7 @@ public class SecurityConfig {
                     "/signup", "/api", "/auth/signup", "/auth/login",
                     "/oauth2/", "/login/oauth2/", "/login"
                 ).permitAll()
-//                .requestMatchers("/api/test-result/").hasAuthority("ADMIN")
+
                 .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
                 .requestMatchers("/api/admin").hasAuthority("ADMIN")
                 .requestMatchers("/api/admin/test-result").hasAuthority("ADMIN")
