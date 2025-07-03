@@ -50,17 +50,22 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  delete(quizId: number){
-    this.quizService.deleteById(quizId).subscribe(
-      res=>{
-        alert("deleted successfully")
-        this.router.navigateByUrl('/admin/dashboard');
+
+deleteQuiz(id: number) {
+  if (confirm("Are you sure you want to delete this quiz?")) {
+    this.quizService.deleteById(id).subscribe({
+      next: () => {
+        alert("Quiz deleted.");
+        this.getQuizzes(); // refresh
       },
-      error => {
-      
-        this.router.navigateByUrl('/admin/dashboard');
+      error: (err) => {
+        console.error(err);
+        alert("Failed to delete quiz.");
       }
-    );
-    }
-      };
+    });
+  }
+}
+
+
+
   
