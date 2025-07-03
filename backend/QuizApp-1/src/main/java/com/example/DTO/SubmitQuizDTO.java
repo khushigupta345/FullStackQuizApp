@@ -1,21 +1,4 @@
-//package com.example.DTO;
-//
-//import java.util.List;
-//
-//import lombok.Data;
-//import lombok.Getter;
-//import lombok.Setter;
-//
-//@Data
-//@Getter
-//@Setter
-//public class SubmitQuizDTO {
-//
-//	private Long quizId;
-//	private Long userId;
-//	private List<QuestionResponse>response;
-//	
-//}
+
 package com.example.DTO;
 
 import lombok.Data;

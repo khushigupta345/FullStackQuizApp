@@ -10,8 +10,7 @@ import com.example.entity.Quiz;
 
 @Repository
 public interface QuizRepository extends JpaRepository<Quiz, Long> {
-//
-//	Optional<Quiz> findById(int id); 
+
 
 }
 

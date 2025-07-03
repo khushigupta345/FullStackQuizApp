@@ -36,22 +36,6 @@ public class UserController {
 		return new ResponseEntity<>(createdUser,HttpStatus.OK);
 		
 	}
-//	@PostMapping("/login")
-//	public ResponseEntity<?>login(@Valid@RequestBody User user){
-//		User u=userservice.login(user);
-//		System.out.println(u);
-//		if(u==null) {
-//			return new ResponseEntity<>("bad credetial",HttpStatus.NOT_ACCEPTABLE);
-//			
-//	}
-//		return new ResponseEntity<>(u,HttpStatus.OK);
-//		
-//	}
+
 	
 }
-//	
-//	
-//	
-//
-//	
-//}

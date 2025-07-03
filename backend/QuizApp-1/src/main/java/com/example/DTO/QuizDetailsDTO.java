@@ -1,21 +1,6 @@
 package com.example.DTO;
 
-//import java.util.List;
-//
-//import lombok.Data;
-//import lombok.Getter;
-//import lombok.Setter;
-//@Setter
-//@Getter
-//@Data
-//public class QuizDetailsDTO {
-//	private QuizDTO quizdto;
-//
-//
-//	private List<QuestionDTO>questions;
-//	
-//
-//}
+
 
 
 

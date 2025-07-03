@@ -7,9 +7,8 @@ public interface UserService {
 		
 		User login(User user);
 		
-//	
+
 	public User createUser(User user);
 
-//	User createUserAdmin(User user);
 	}
 

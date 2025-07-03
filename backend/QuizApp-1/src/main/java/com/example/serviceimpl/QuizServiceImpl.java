@@ -163,28 +163,7 @@ public boolean deletequizbyid(Long id) {
     }
     return false;
 }
-//public boolean updateQuiz(Long id, QuizDTO updatedQuiz) {
-//    Optional<Quiz> quiz = qv.findById(id);
-//    if (quiz.isPresent()) {
-//        Quiz existingQuiz = quiz.get();
-//        existingQuiz.setTitle(updatedQuiz.getTitle());
-//        existingQuiz.setDescription(updatedQuiz.getDescription());
-//        qv.save(existingQuiz).getDto();
-//return true;
-//
-//        
-//
-//    }
-//
-//       
-//
-//        
-//
-//    
-//
-//    return false;
-//
-//}
+
 public boolean updateQuiz(Long id, QuizDTO updatedQuizDto) {
     if (updatedQuizDto == null) return false; // Null check
 

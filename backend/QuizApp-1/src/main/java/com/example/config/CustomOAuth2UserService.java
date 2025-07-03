@@ -29,7 +29,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2User oAuth2User = new DefaultOAuth2UserService().loadUser(userRequest);
         String email = oAuth2User.getAttribute("email");
 
-        // ❌ Do not auto-create user
+        //  Do not auto-create user
         Optional<User> user = userRepository.findByEmail(email);
         if (user .isEmpty()) {
             throw new OAuth2AuthenticationException("User not registered. Signup required.");
