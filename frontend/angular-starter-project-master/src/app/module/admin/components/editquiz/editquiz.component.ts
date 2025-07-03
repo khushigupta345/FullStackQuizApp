@@ -28,6 +28,8 @@ export class EditquizComponent implements OnInit {
     if (idParam) {
       this.quizId = Number(idParam);
       this.loadQuiz(this.quizId);
+console.log("Quiz ID converted = ", this.quizId); 
+      
     } else {
       alert('Invalid quiz ID in URL.');
     }
