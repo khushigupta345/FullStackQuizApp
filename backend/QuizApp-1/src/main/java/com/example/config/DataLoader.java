@@ -3,7 +3,7 @@ package com.example.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import com.example.entity.User;
 import com.example.enums.UserRole;
@@ -15,8 +15,6 @@ public class DataLoader implements CommandLineRunner {
     @Autowired
     private UserRepository userRepo;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) {
