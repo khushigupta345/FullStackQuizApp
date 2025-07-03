@@ -18,7 +18,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        String adminEmail = "admin@gmail.com";
+        String adminEmail = "quizappowner2025kg@gmail.com";
 
         if (userRepo.findByEmail(adminEmail).isEmpty()) {
             User admin = new User();
