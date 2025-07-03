@@ -25,7 +25,7 @@ import com.example.DTO.QuizDTO;
 import com.example.DTO.SubmitQuizDTO;
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins ="http://localhost:4200")
+@CrossOrigin(origins ="https://full-stack-quiz-app-rho.vercel.app")
 @PreAuthorize("hasAuthority('USER')")
 public class PlayerController {
 @Autowired
