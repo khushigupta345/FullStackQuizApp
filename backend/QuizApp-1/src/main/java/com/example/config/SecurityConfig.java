@@ -86,8 +86,8 @@ public class SecurityConfig {
 
                     String jwt = jwtService.generateToken(email, role, id);
                     System.out.println(id);
-                    String redirectUrl = "http://localhost:4200/login-success?token=" + jwt;
-                    response.sendRedirect(redirectUrl);
+                    String redirectUrl = "https://full-stack-quiz-app-rho.vercel.app/login-success?token=" + jwt;
+                     response.sendRedirect(redirectUrl);
                 })
             );
 
