@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/auth/signup/quiz.service';
+import {  OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-editquiz',

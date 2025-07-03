@@ -69,3 +69,4 @@ deleteQuiz(id: number) {
 
 
   
+}
