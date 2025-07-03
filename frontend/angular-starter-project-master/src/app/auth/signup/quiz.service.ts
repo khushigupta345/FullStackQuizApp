@@ -66,8 +66,11 @@ deleteById(quizId: number): Observable<any> {
 getQuizById(quizId:number):Observable<any> {
   return this.http.get(`${this.apiUrl}/api/admin/quiz/${quizId}`);
 }
-updateQuiz(id:number, quizData:any):Observable<any> {
-  return this.http.put(`${this.apiUrl}/api/admin/quizzes/${id}`,quizData);
+
+updateQuiz(id: number, quizData: any): Observable<any> {
+  return this.http.put(`${this.apiUrl}/api/admin/quizzes/${id}`, quizData, {
+    responseType: 'text' as 'json'   
+  });
 }
 
 googleLogin(token: string): Observable<any> {

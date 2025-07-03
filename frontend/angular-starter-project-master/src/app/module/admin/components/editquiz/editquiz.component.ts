@@ -48,12 +48,8 @@ console.log("Quiz ID converted = ", this.quizId);
     });
   }
 
-  saveUpdatedQuiz() {
-    if (!this.quizId || !this.quiz.title || !this.quiz.description || !this.quiz.time) {
-      alert("Please fill all quiz fields correctly.");
-      return;
-    }
-
+ saveUpdatedQuiz() {
+    console.log('Submitting updated quiz:', this.quiz);
     this.quizService.updateQuiz(this.quizId, this.quiz).subscribe({
       next: (res) => {
         alert("Quiz updated successfully.");
