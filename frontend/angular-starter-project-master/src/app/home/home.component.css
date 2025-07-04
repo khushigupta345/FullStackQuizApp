@@ -1,13 +1,14 @@
-body, html {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -21,7 +22,7 @@ body::before {
 }
 
 .container {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
