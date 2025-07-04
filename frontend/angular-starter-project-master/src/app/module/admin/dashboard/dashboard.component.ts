@@ -55,7 +55,7 @@ deleteQuiz(id: number) {
   if (confirm("Are you sure you want to delete this quiz?")) {
     this.quizService.deleteById(id).subscribe({
       next: (res) => {
-        alert("Deleted: " + res);
+        alert(res.message); 
         this.getQuizzes();
       },
       error: (err) => {
