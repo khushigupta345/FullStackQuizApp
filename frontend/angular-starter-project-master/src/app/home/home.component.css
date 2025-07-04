@@ -1,4 +1,5 @@
- html, body {
+
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -12,7 +13,7 @@ body::before {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url('/assets/images/quiz1.jpg');
+  background-image: url('assets/images/quiz1.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
