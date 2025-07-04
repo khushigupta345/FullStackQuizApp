@@ -13,11 +13,9 @@ body::before {
   left: 0;
   height: 100%;
   width: 100%;
-<<<<<<< HEAD
-  background-image: url('assets/images/quiz1.jpg'); 
-=======
+
   background-image: url('assets/images/quiz1.jpg');
->>>>>>> 4a34137deef98c6227d17e753afe3181c4b865a0
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
