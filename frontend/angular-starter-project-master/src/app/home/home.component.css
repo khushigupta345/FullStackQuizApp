@@ -1,29 +1,28 @@
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+.home-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
-body::before {
-  content: "";
-  position: fixed;
+.fullscreen-bg {
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-
   background-image: url('/assets/images/quiz1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -1;
+  z-index: 0;
   opacity: 0.5;
 }
 
 .container {
-  height: 100vh;
+  position: relative;
+  z-index: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
