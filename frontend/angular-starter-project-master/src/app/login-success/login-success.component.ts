@@ -13,30 +13,35 @@ export class LoginSuccessComponent {
 
   constructor(private route: ActivatedRoute, private router: Router,private storageService:StorageService) {}
 
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      const token = params['token'];
-      if (token) {
-        localStorage.setItem('jwtToken', token);
+ngOnInit(): void {
+  this.route.queryParams.subscribe(params => {
+    const token = params['token'];
+    if (token) {
+      localStorage.setItem('jwtToken', token);
 
-        // Decode token to extract user data
-        const payload = JSON.parse(atob(token.split('.')[1]));
-        const user = {
-          email: payload.sub,
-          role: payload.role,
-          // id: payload.userId
-         id: payload.id
-        };
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const user = {
+        email: payload.sub,
+        role: payload.role,
+        id: payload.id
+      };
 
- console.log(user.id);
-        localStorage.setItem('user', JSON.stringify(user));
-this.storageService.saveUser(user);
+      console.log(user.id);
+      localStorage.setItem('user', JSON.stringify(user));
+      this.storageService.saveUser(user);
 
+      
+      if (user.role === 'ADMIN') {
+        this.router.navigate(['/admin/dashboard']);
+      } else if (user.role === 'USER') {
+        this.router.navigate(['/user/dashboard']);
+      } else {
+        this.router.navigate(['/login']);
       }
-      //   // this.router.navigate(['/dashboard']);
-      // } else {
-      //   // this.router.navigate(['/login']);
-      // }
-    });
-  }
+
+    } else {
+      this.router.navigate(['/login']);
+    }
+  });
+}
 }
