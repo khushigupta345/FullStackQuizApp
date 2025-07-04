@@ -81,7 +81,6 @@ public ResponseEntity<?> getallquizresult(){
 
 
 
-
 @DeleteMapping("delete/{id}")
 public ResponseEntity<Map<String, String>> deleteQuiz(@PathVariable("id") Long id) {
     Map<String, String> response = new HashMap<>();
@@ -95,7 +94,6 @@ public ResponseEntity<Map<String, String>> deleteQuiz(@PathVariable("id") Long i
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     } catch (Exception e) {
-        e.printStackTrace(); 
         response.put("error", "Server error: " + e.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
