@@ -131,55 +131,19 @@ public  List<QuizResultDTO> getallresultbyid(Long userId){
 }
 
 
-// @Override
-// @Transactional
-// public boolean deletequizbyid(Long id) {
-//     if (qv.existsById(id)) {
-//         qv.deleteById(id);
-        
-
-//         // Reset Auto-Increment only if table is empty
-//         if (qv.count() == 0) {
-//             entityManager.createNativeQuery("ALTER TABLE quiz AUTO_INCREMENT = 1").executeUpdate();
-//         }
-//         if (qestion.count() == 0) {
-//             entityManager.createNativeQuery("ALTER TABLE question AUTO_INCREMENT = 1").executeUpdate();
-//         }
-//         if (resultRepository.count() == 0) {
-//             entityManager.createNativeQuery("ALTER TABLE quiz_result AUTO_INCREMENT = 1").executeUpdate();
-//         }
-
-//         return true;
-//     }
-//     return false;
-// }
 @Override
 @Transactional
 public boolean deletequizbyid(Long id) {
     if (qv.existsById(id)) {
-        // 🔥 Delete all questions linked to this quiz first
-        qestion.deleteByQuizId(id);  // See Step 2
-
-        // Then delete the quiz
+        // All related questions will be deleted because of cascade + orphanRemoval
         qv.deleteById(id);
-
-        // Optional: Reset auto-increments if needed
-        if (qv.count() == 0) {
-            entityManager.createNativeQuery("ALTER TABLE quiz AUTO_INCREMENT = 1").executeUpdate();
-        }
-        if (qestion.count() == 0) {
-            entityManager.createNativeQuery("ALTER TABLE question AUTO_INCREMENT = 1").executeUpdate();
-        }
-        if (resultRepository.count() == 0) {
-            entityManager.createNativeQuery("ALTER TABLE quiz_result AUTO_INCREMENT = 1").executeUpdate();
-        }
-
         return true;
     }
     return false;
 }
+	
 public boolean updateQuiz(Long id, QuizDTO updatedQuizDto) {
-    if (updatedQuizDto == null) return false; // Null check
+    if (updatedQuizDto == null) return false; 
 
     return qv.findById(id).map(existingQuiz -> {
         existingQuiz.setTitle(updatedQuizDto.getTitle());
