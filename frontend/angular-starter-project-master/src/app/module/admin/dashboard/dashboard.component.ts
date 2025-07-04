@@ -65,3 +65,4 @@ deleteQuiz(id: number) {
     });
   }
 }
+}
