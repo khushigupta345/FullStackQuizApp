@@ -1,23 +1,44 @@
 <div class="signup-container">
-  <div class="signup-box">
-    <h2>Sign Up</h2>
+  <div class="signup-card">
+    <h2 class="signup-title">Create Account</h2>
     <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
-      <div class="form-group">
+      
+      <div class="input-group">
         <label for="name">Full Name</label>
-        <input type="text" id="name" formControlName="name" placeholder="Enter your full name" />
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          placeholder="John Doe"
+        />
       </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email" placeholder="Enter your email" />
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="example@mail.com"
+        />
       </div>
 
-      <div class="form-group">
+      <div class="input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password" placeholder="Enter password" />
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter secure password"
+        />
       </div>
 
       <button type="submit" [disabled]="validateForm.invalid">Sign Up</button>
+
+      <p class="footer-text">
+        Already have an account?
+        <a routerLink="/login">Login here</a>
+      </p>
     </form>
   </div>
 </div>
