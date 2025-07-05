@@ -1,10 +1,10 @@
 <nav class="main-navbar">
   <div class="nav-left">
     <a routerLink="/" class="logo">QuizApp</a>
-    <button class="hamburger" (click)="toggleMenu()">&#9776;</button>
+    <button class="hamburger" (click)="toggleMenu()">☰</button>
   </div>
 
-  <ul [class.open]="menuOpen" class="nav-right">
+  <ul class="nav-right" [class.open]="menuOpen">
     <ng-container *ngIf="isAdminLoggedIn">
       <li><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
       <li><a routerLink="/admin/create-test" routerLinkActive="active">Create Quiz</a></li>
