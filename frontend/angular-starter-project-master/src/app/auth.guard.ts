@@ -15,13 +15,14 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(): boolean {
-    const user = this.storageService.getUser();
-    
-    if (user) {
-      return true; 
-    } else {
-      this.router.navigate(['/login']); 
-      return false;
-    }
+  const token = localStorage.getItem('jwtToken');
+  const user = localStorage.getItem('user');
+
+  if (token && user) {
+    return true;
+  } else {
+    this.router.navigate(['/login']);
+    return false;
+  }
   }
 }
