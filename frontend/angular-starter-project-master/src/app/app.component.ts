@@ -16,11 +16,11 @@ export class AppComponent {
     this.isAdminLoggedIn = role === 'ADMIN';
   }
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
 
-  logout() {
+  logout(): void {
     localStorage.clear();
     window.location.href = '/login';
   }
