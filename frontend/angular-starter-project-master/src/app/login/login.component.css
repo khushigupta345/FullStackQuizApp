@@ -14,14 +14,24 @@ body, html {
 .login-wrapper {
   height: 100vh;
   width: 100vw;
-  background: url('https://source.unsplash.com/1600x900/?technology,education,gradient') no-repeat center center/cover;
+  position: relative;
+  background: url('https://source.unsplash.com/1600x900/?quiz,technology,learning') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }
 
 .login-card {
+  position: relative;
+  z-index: 1;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -32,6 +42,7 @@ body, html {
   width: 90%;
   max-width: 340px;
   color: #fff;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 .login-card h2 {
@@ -81,4 +92,9 @@ body, html {
     font-size: 14px;
     padding: 10px 16px;
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
