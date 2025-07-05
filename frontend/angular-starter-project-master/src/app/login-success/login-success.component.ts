@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from '../storage.service';
 
@@ -12,37 +11,55 @@ import { StorageService } from '../storage.service';
 })
 export class LoginSuccessComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router,private storageService:StorageService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private storageService: StorageService
+  ) {}
 
-ngOnInit(): void {
-  this.route.queryParams.subscribe(params => {
-    const token = params['token'];
-    if (token) {
-      localStorage.setItem('jwtToken', token);
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const token = params['token'];
 
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      const user = {
-        email: payload.sub,
-        role: payload.role,
-        id: payload.id
-      };
+      if (token) {
+        // Save token
+        localStorage.setItem('jwtToken', token);
 
-      console.log(user.id);
-      localStorage.setItem('user', JSON.stringify(user));
-      this.storageService.saveUser(user);
+        try {
+          // Decode JWT payload
+          const payload = JSON.parse(atob(token.split('.')[1]));
 
-      
-      if (user.role === 'ADMIN') {
-        this.router.navigate(['/admin/dashboard']);
-      } else if (user.role === 'USER') {
-        this.router.navigate(['/user/dashboard']);
+          const user = {
+            email: payload.sub,
+            role: payload.role,
+            id: payload.id
+          };
+
+          // Save user in localStorage and service
+          localStorage.setItem('user', JSON.stringify(user));
+          this.storageService.saveUser(user);
+
+          console.log('User role:', user.role);
+
+          // Route based on role after slight delay
+          setTimeout(() => {
+            if (user.role === 'ADMIN') {
+              this.router.navigate(['/admin/dashboard']);
+            } else if (user.role === 'USER') {
+              this.router.navigate(['/user/dashboard']);
+            } else {
+              this.router.navigate(['/login']);
+            }
+          }, 100);
+
+        } catch (e) {
+          console.error("Invalid token format", e);
+          this.router.navigate(['/login']);
+        }
       } else {
+        // No token in URL
         this.router.navigate(['/login']);
       }
-
-    } else {
-      this.router.navigate(['/login']);
-    }
-  });
-}
+    });
+  }
 }
