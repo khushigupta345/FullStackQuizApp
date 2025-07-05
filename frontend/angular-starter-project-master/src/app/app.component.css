@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-image: url('assets/images/quiz.jpg');
   background-size: cover;
   background-position: center;
@@ -11,12 +13,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e1e1e;
+  background-color: rgba(30, 30, 30, 0.9);
   padding: 14px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
 }
 
 .nav-left {
@@ -26,15 +29,15 @@ body {
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 600;
   color: #ffffff;
   text-decoration: none;
 }
 
 .hamburger {
   display: none;
-  font-size: 24px;
+  font-size: 26px;
   color: white;
   background: transparent;
   border: none;
@@ -44,27 +47,28 @@ body {
 .nav-right {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 20px;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .nav-right li {
   display: flex;
-  align-items: center;
 }
 
 .nav-right a,
 .nav-right button {
-  color: #f5f5f5;
   font-size: 16px;
-  padding: 8px 16px;
+  font-weight: 500;
+  padding: 8px 18px;
   background: transparent;
+  color: #f5f5f5;
   border: none;
-  border-radius: 5px;
-  text-decoration: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .nav-right a:hover,
@@ -73,12 +77,12 @@ body {
 }
 
 .nav-right a.active {
-  background-color: #007bff;
+  background-color: #2196f3;
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* Mobile view */
+/* Responsive */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -87,19 +91,19 @@ body {
   .nav-right {
     flex-direction: column;
     align-items: flex-start;
-    background-color: #1e1e1e;
+    background-color: rgba(30, 30, 30, 0.95);
     position: absolute;
     top: 60px;
     right: 0;
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
   }
 
   .nav-right.open {
-    max-height: 400px;
-    padding: 10px 20px;
+    max-height: 500px;
+    padding: 15px 25px;
   }
 
   .nav-right a,
