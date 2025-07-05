@@ -1,63 +1,96 @@
-/* Full screen center */
-.google-login-wrapper {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right top, #c9d6ff, #e2e2e2);
   height: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #dbe6f6, #c5796d);
-  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Card-style container */
-.google-login-card {
-  background: #ffffffdd;
+.google-glass-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
   padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
+  width: 320px;
+  animation: fadeIn 1s ease;
 }
 
-/* Google button style */
-.google-signin-btn {
+.glass-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.glass-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Google button */
+.google-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  background-color: #fff;
-  color: #5f6368;
+  background-color: white;
+  color: #444;
   font-size: 16px;
-  font-weight: 500;
-  padding: 12px 24px;
-  border: 1px solid #dadce0;
-  border-radius: 8px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: none;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(60, 64, 67, 0.3), 0 2px 6px rgba(60, 64, 67, 0.15);
-  transition: all 0.3s ease-in-out;
-  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-.google-signin-btn:hover {
-  background-color: #f8f9fa;
-  box-shadow: 0 4px 14px rgba(60, 64, 67, 0.3);
-  transform: translateY(-1px);
+.google-btn:hover {
+  transform: translateY(-2px);
+  background-color: #f5f5f5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Google icon */
-.google-signin-btn img {
+.google-btn img {
   width: 22px;
   height: 22px;
 }
 
-/* Responsive for small screens */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
 @media (max-width: 480px) {
-  .google-login-card {
+  .glass-card {
     width: 90%;
-    padding: 25px 20px;
+    padding: 30px 20px;
   }
 
-  .google-signin-btn {
+  .google-btn {
     font-size: 14px;
-    padding: 10px 18px;
+    padding: 10px 16px;
   }
 }
