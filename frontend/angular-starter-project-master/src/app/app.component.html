@@ -1,40 +1,29 @@
-
-<div *ngIf="isUserLoggedIn">
-  <div class="navbar">
-    <ul>
-      <li><a routerLink="/user/dashboard">Dashboard</a></li>
-      <li><a routerLink="/user/view-test-results">View Result</a></li>
-      <li><button (click)="logout()" style="color: aliceblue;">Logout</button></li>
-    </ul>
-  </div>
+<!-- User Navbar -->
+<div *ngIf="isUserLoggedIn" class="navbar">
+  <ul>
+    <li><a routerLink="/user/dashboard" routerLinkActive="active">Dashboard</a></li>
+    <li><a routerLink="/user/view-test-results" routerLinkActive="active">View Result</a></li>
+    <li><button (click)="logout()">Logout</button></li>
+  </ul>
 </div>
 
 <!-- Admin Navbar -->
-<div *ngIf="isAdminLoggedIn">
-  <div class="navbar">
-    <ul>
-      <li><a routerLink="/admin/dashboard">Dashboard</a></li>
-      <li><a routerLink="/admin/create-test">Create Quiz</a></li>
-      <li><a routerLink="/admin/view-test-result">View Results</a></li>
-      <li><button (click)="logout()" style="color: aliceblue;">Logout</button></li>
-    </ul>
-  </div>
+<div *ngIf="isAdminLoggedIn" class="navbar">
+  <ul>
+    <li><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
+    <li><a routerLink="/admin/create-test" routerLinkActive="active">Create Quiz</a></li>
+    <li><a routerLink="/admin/view-test-result" routerLinkActive="active">View Results</a></li>
+    <li><button (click)="logout()">Logout</button></li>
+  </ul>
 </div>
 
-<!-- User Navbar -->
-<div *ngIf="!isUserLoggedIn && !isAdminLoggedIn">
-  <div class="navbar">
-    <ul>
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/register">Sign Up</a></li>
-      <li><a routerLink="/login">Login</a></li>
-     
-    </ul>
-  </div>
-
-  
+<!-- Guest Navbar -->
+<div *ngIf="!isUserLoggedIn && !isAdminLoggedIn" class="navbar">
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/register" routerLinkActive="active">Sign Up</a></li>
+    <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+  </ul>
 </div>
-
-
 
 <router-outlet></router-outlet>
