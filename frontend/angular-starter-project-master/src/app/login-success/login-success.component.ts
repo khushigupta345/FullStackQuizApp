@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from '../storage.service';
 
@@ -9,7 +10,7 @@ import { StorageService } from '../storage.service';
   templateUrl: './login-success.component.html',
   styleUrl: './login-success.component.css'
 })
-export class LoginSuccessComponent {
+export class LoginSuccessComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router,private storageService:StorageService) {}
 
