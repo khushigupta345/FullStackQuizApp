@@ -19,9 +19,18 @@ export class AppComponent {
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
-
+/*
   logout(): void {
     localStorage.clear();
     window.location.href = '/login';
-  }
+  }*/
+
+logout() {
+  localStorage.clear();
+  this.isUserLoggedIn = false;
+  this.isAdminLoggedIn = false;
+  this.menuOpen = false;
+  window.location.href = '/home'; // ya '/login' if styled correctly
+}
+  
 }
