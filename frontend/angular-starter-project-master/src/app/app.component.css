@@ -1,46 +1,75 @@
-/* Navbar style */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('assets/images/quiz.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .navbar {
-    background-color:black;
-    padding: 15px 0;
-    text-align: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 16px 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
 }
 
-button{
-     color: white;
-    text-decoration: none;
-    font-size: 18px;
-   
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-
-}
-body{
-    background-image:url('assets/images/quiz.jpg') ;
-background-size: cover;
-height: 3000000px;
-width: 100%;
-} 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-   
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+.navbar a,
+.navbar button {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  background: transparent;
 }
 
-.navbar a:hover {
-    background-color: #45a049;
+.navbar a:hover,
+.navbar button:hover {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 114, 255, 0.4);
 }
 
 .navbar a.active {
-    font-weight: bold;
-    background-color:black;
+  background-color: #ffffff22;
+  color: #00d4ff;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .navbar a,
+  .navbar button {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+  }
 }
