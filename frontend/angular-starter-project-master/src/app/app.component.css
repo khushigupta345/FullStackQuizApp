@@ -5,6 +5,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+/* Navbar container */
 .main-navbar {
   display: flex;
   justify-content: space-between;
@@ -15,15 +16,27 @@ body {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
+/* Left section with logo and toggle */
+.nav-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1010;
+}
+
+/* Logo styling */
 .logo {
   font-size: 22px;
   font-weight: bold;
   color: #ffffff;
-  cursor: default;
+  text-decoration: none;
+  margin-right: 20px;
 }
 
+/* Toggle button */
 .hamburger {
   display: none;
   font-size: 26px;
@@ -31,21 +44,27 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
+  position: relative;
+  z-index: 1010;
 }
 
+/* Nav list */
 .nav-right {
   list-style: none;
   display: flex;
   gap: 20px;
   margin: 0;
   padding: 0;
+  z-index: 1000;
 }
 
+/* List items */
 .nav-right li {
   display: flex;
   align-items: center;
 }
 
+/* Links and buttons */
 .nav-right a,
 .nav-right button {
   font-size: 16px;
@@ -71,7 +90,7 @@ body {
   border-radius: 6px;
 }
 
-/* Responsive menu */
+/* Responsive - mobile view */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
