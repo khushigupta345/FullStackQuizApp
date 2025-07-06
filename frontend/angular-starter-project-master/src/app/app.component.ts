@@ -24,14 +24,12 @@ export class AppComponent implements OnInit {
   }
 
   logout(): void {
-  localStorage.clear();
-  this.isUserLoggedIn = false;
-  this.isAdminLoggedIn = false;
-  this.menuOpen = false;
-
-
-  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    this.router.navigate(['/home']);
-  });
+    localStorage.clear();
+    this.isUserLoggedIn = false;
+    this.isAdminLoggedIn = false;
+    this.menuOpen = false;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/home']);
+    });
   }
 }
