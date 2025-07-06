@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
 @RestController
 //@RequestMapping("/api/auth")
 
-@CrossOrigin(origins ="https://full-stack-quiz-app-rho.vercel.app")
+@CrossOrigin(origins ="https://full-stack-quiz-app-khushis-projects-d7056416.vercel.app/")
 public class UserController {
 	@Autowired
 	private UserService userservice;
