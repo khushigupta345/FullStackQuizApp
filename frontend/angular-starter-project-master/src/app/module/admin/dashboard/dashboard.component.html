@@ -1,5 +1,6 @@
 <div class="quiz-container">
-  <h1>Available Quizzes</h1>
+  <h1 class="animated-heading">Available Quizzes</h1>
+
   <div class="quiz-list">
     <div class="quiz-item" *ngFor="let quiz of quizzes">
       <h2>{{ quiz.title }}</h2>
@@ -7,9 +8,9 @@
       <p>{{ getFormattedTime(quiz.time) }}</p>
 
       <div class="quiz-actions">
-        <button class="btn primary" [routerLink]="['/admin/add-question', quiz.id]">Add Question</button>
-        <button class="btn warning" [routerLink]="['/admin/edit-quiz', quiz.id]">Edit Quiz</button>
-        <button class="btn danger" (click)="deleteQuiz(quiz.id)">Delete Quiz</button>
+        <button class="btn glass green" [routerLink]="['/admin/add-question', quiz.id]">Add Question</button>
+        <button class="btn glass orange" [routerLink]="['/admin/edit-quiz', quiz.id]">Edit Quiz</button>
+        <button class="btn glass red" (click)="deleteQuiz(quiz.id)">Delete Quiz</button>
       </div>
     </div>
   </div>
