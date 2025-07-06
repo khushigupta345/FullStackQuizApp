@@ -12,10 +12,7 @@ export class AppComponent implements OnInit {
   isAdminLoggedIn = false;
   menuOpen = false;
 
-  constructor(
-    private router: Router,
-    private storageService: StorageService
-  ) {}
+  constructor(private router: Router, private storageService: StorageService) {}
 
   ngOnInit(): void {
     this.updateUserRole(this.storageService.getUserRole());
