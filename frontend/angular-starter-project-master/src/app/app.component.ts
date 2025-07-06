@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StorageService } from './storage.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,20 @@ export class AppComponent implements OnInit {
   isAdminLoggedIn = false;
   menuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit(): void {
-    const role = localStorage.getItem('user-role');
+    this.updateUserRole(this.storageService.getUserRole());
+
+    this.storageService.user$.subscribe(user => {
+      this.updateUserRole(user?.role || null);
+    });
+  }
+
+  updateUserRole(role: string | null): void {
     this.isUserLoggedIn = role === 'USER';
     this.isAdminLoggedIn = role === 'ADMIN';
   }
@@ -24,9 +35,8 @@ export class AppComponent implements OnInit {
   }
 
   logout(): void {
-    localStorage.clear();
-    this.isUserLoggedIn = false;
-    this.isAdminLoggedIn = false;
+    this.storageService.signOut();
+    this.updateUserRole(null);
     this.menuOpen = false;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/home']);
