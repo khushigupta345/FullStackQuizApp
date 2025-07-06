@@ -86,7 +86,7 @@ public class SecurityConfig {
 
                     String jwt = jwtService.generateToken(email, role, id);
                     System.out.println(id);
-                    String redirectUrl = "https://full-stack-quiz-app-khushis-projects-d7056416.vercel.app//login-success?token=" + jwt;
+                    String redirectUrl = "https://full-stack-quiz-app-khushis-projects-d7056416.vercel.app/login-success?token=" + jwt;
                      response.sendRedirect(redirectUrl);
                 })
             );
@@ -101,7 +101,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // <- fix for all routes
-                        .allowedOrigins("https://full-stack-quiz-app-khushis-projects-d7056416.vercel.app/")
+                        .allowedOrigins("https://full-stack-quiz-app-khushis-projects-d7056416.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowCredentials(true);
             }
