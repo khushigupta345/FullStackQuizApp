@@ -101,7 +101,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // <- fix for all routes
-                        .allowedOrigins("https://full-stack-quiz-app-rho.vercel.app")
+                        .allowedOrigins("https://full-stack-quiz-app-khushis-projects-d7056416.vercel.app/")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowCredentials(true);
             }
