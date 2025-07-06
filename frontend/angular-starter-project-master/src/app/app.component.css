@@ -21,7 +21,7 @@ body {
   font-size: 22px;
   font-weight: bold;
   color: #ffffff;
-  text-decoration: none;
+  cursor: default;
 }
 
 .hamburger {
@@ -71,6 +71,7 @@ body {
   border-radius: 6px;
 }
 
+/* Responsive menu */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
