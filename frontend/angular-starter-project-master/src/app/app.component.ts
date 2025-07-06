@@ -30,7 +30,8 @@ logout() {
   this.isUserLoggedIn = false;
   this.isAdminLoggedIn = false;
   this.menuOpen = false;
-  window.location.href = '/home'; // ya '/login' if styled correctly
+  this.router.navigate(['/home']); 
 }
+  
   
 }
