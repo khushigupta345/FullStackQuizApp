@@ -26,7 +26,7 @@ import com.example.DTO.QuizDTO;
 import com.example.DTO.SubmitQuizDTO;
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin(origins ="https://full-stack-quiz-app-rho.vercel.app")
+@CrossOrigin(origins ="https://full-stack-quiz-app-khushis-projects-d7056416.vercel.app")
 @PreAuthorize("hasAuthority('ADMIN')") // Only admin can
 public class GameMasterController {
 	@Autowired
