@@ -1,59 +1,109 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc, #a1c4fd, #d4fc79);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
 
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Quiz container */
 .quiz-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #4CAF50;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-  }
-  
-  
-  .quiz-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-  }
-  
-  .quiz-item {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  
-  .quiz-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .quiz-item h2 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .quiz-item p {
-    font-size: 1.1em;
-    color: #777;
-    margin-bottom: 15px;
-  }
-    /* Quiz Button */
-  button{
-    margin: 5px;
-    padding: 3px;
-    background-color: green;
-    border-radius: 1px;
-  }
-  
-  
+  width: 90%;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+/* Timer */
+.timer {
+  text-align: right;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #0a3d62;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  font-size: 2.4em;
+  color: #1e272e;
+  margin-bottom: 40px;
+  position: relative;
+}
+h1::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+
+/* Quiz Grid */
+.quiz-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* Each question card */
+.quiz-item {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.quiz-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Question Text */
+.quiz-item h4 {
+  margin-bottom: 18px;
+  font-size: 1.2em;
+  color: #222f3e;
+}
+
+/* Options */
+.option {
+  margin-bottom: 12px;
+}
+.option input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #00b894;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 28px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #00b09b, #96c93d);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+  background: linear-gradient(to right, #00a388, #7cbf2d);
+  transform: scale(1.03);
+}
