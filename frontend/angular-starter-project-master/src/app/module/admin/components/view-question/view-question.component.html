@@ -4,30 +4,72 @@
     <div *ngFor="let question of questions" class="question-card">
       <h4>{{ question.questionText }}</h4>
 
-      <div class="option">
+      <div class="option"
+        [ngClass]="{
+          'correct': submitted && question.correctOption === 'A',
+          'selected': selectedAnswers[question.id] === 'A'
+        }">
         <label>
-          <input type="radio" name="question{{ question.id }}" />
+          <input type="radio"
+                 [disabled]="submitted"
+                 name="question{{ question.id }}"
+                 (change)="selectAnswer(question.id, 'A')" />
           {{ question.optionA }}
         </label>
       </div>
-      <div class="option">
+
+      <div class="option"
+        [ngClass]="{
+          'correct': submitted && question.correctOption === 'B',
+          'selected': selectedAnswers[question.id] === 'B'
+        }">
         <label>
-          <input type="radio" name="question{{ question.id }}" />
+          <input type="radio"
+                 [disabled]="submitted"
+                 name="question{{ question.id }}"
+                 (change)="selectAnswer(question.id, 'B')" />
           {{ question.optionB }}
         </label>
       </div>
-      <div class="option">
+
+      <div class="option"
+        [ngClass]="{
+          'correct': submitted && question.correctOption === 'C',
+          'selected': selectedAnswers[question.id] === 'C'
+        }">
         <label>
-          <input type="radio" name="question{{ question.id }}" />
+          <input type="radio"
+                 [disabled]="submitted"
+                 name="question{{ question.id }}"
+                 (change)="selectAnswer(question.id, 'C')" />
           {{ question.optionC }}
         </label>
       </div>
-      <div class="option">
+
+      <div class="option"
+        [ngClass]="{
+          'correct': submitted && question.correctOption === 'D',
+          'selected': selectedAnswers[question.id] === 'D'
+        }">
         <label>
-          <input type="radio" name="question{{ question.id }}" />
+          <input type="radio"
+                 [disabled]="submitted"
+                 name="question{{ question.id }}"
+                 (change)="selectAnswer(question.id, 'D')" />
           {{ question.optionD }}
         </label>
       </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <button *ngIf="!submitted" (click)="submitAnswers()">Submit Answers</button>
+
+    <div *ngIf="submitted" class="score-result">
+      <h2>You scored {{ score }} / {{ questions.length }}</h2>
+      <h3 [style.color]="pass ? 'green' : 'red'">
+        {{ pass ? '🎉 Pass' : '❌ Fail' }}
+      </h3>
     </div>
   </div>
 </div>
