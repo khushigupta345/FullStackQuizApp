@@ -130,7 +130,7 @@ public QuizResultDTO submitQuiz(SubmitQuizDTO request) {
     dto.setQuestionAnswers(answerDetails);
 
     return dto;
-
+}
 public List<QuizResultDTO>getallquizresult(){
 	return resultRepository.findAll().stream().map(QuizResult::getDto).toList();
 	
