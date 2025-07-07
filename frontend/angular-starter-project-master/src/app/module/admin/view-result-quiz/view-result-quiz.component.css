@@ -29,7 +29,15 @@ html, body {
   animation: fadeIn 1s ease;
   overflow-x: auto;
 }
+.pass {
+  color: green;
+  font-weight: bold;
+}
 
+.fail {
+  color: red;
+  font-weight: bold;
+}
 table {
   width: 100%;
   border-collapse: collapse;
