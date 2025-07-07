@@ -1,21 +1,16 @@
-<div class="signup-container">
-  <h2>Quiz</h2>
-  <form [formGroup]="testForm" (ngSubmit)="submitForm()">
-    <div class="form-group">
-      <label for="title">Quiz Title:</label>
-      <input type="text" id="title" name="title" placeholder="Enter your title" formControlName="title" />
-    </div>
+<div class="quiz-container">
+  <h1 class="animated-heading">Quiz</h1>
 
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea id="description" formControlName="description" name="description"></textarea>
-    </div>
+  <form class="quiz-form">
+    <label for="title">Quiz Title:</label>
+    <input type="text" id="title" name="title" placeholder="Enter your title" />
 
-    <div class="form-group">
-      <label for="time">Time:</label>
-      <input type="number" id="time" formControlName="time" name="time" />
-    </div>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" placeholder="Enter description"></textarea>
 
-    <button type="submit">Submit</button>
+    <label for="time">Time:</label>
+    <input type="number" id="time" name="time" placeholder="Enter time in minutes" />
+
+    <button type="submit" class="submit-btn">Submit</button>
   </form>
 </div>
