@@ -4,31 +4,30 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #c3cfe2, #f5f7fa, #e0eafc, #cfdef3);
+  background: linear-gradient(115deg, #a18cd1, #fbc2eb, #fad0c4, #ffd1ff);
   background-size: 400% 400%;
-  animation: bgAnimation 20s ease infinite;
-  overflow-x: hidden;
-
-  
+  animation: dreamyBackground 15s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-@keyframes bgAnimation {
+@keyframes dreamyBackground {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
 .quiz-container {
+  width: 95%;
   max-width: 1200px;
-  margin: auto;  /* pehle margin: 60px auto; tha usko replace karo */
   padding: 50px;
+  margin: auto;
   border-radius: 25px;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
   animation: fadeIn 1.2s ease;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -61,37 +60,16 @@ body {
 }
 
 .quiz-item {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-  transition: all 0.4s ease;
-  animation: popIn 0.7s ease;
-}
-
-.quiz-item::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  z-index: -1;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #8e2de2, #4a00e0, #00c9ff);
-  background-size: 300% 300%;
-  animation: gradientBorder 6s ease infinite;
-}
-
-@keyframes gradientBorder {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .quiz-item:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
 }
 
 .quiz-item h2 {
@@ -142,6 +120,11 @@ body {
   opacity: 0;
 }
 
+.btn:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
@@ -175,14 +158,21 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes popIn {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
 @keyframes slideDown {
   from { transform: translateY(-20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
+}
+
+.no-quiz {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #4a00e0;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  margin-top: 30px;
 }
 
 @media (max-width: 768px) {
@@ -201,4 +191,4 @@ body {
   .btn {
     flex: 1 1 100%;
   }
-}
+    }
