@@ -26,7 +26,8 @@ import com.example.repository.QuizRepository;
 import com.example.repository.QuizResultRepository;
 import com.example.repository.UserRepository;
 import com.example.service.QuizService;
-
+import com.example.DTO.QuestionAnswerDTO;
+import java.util.ArrayList;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 @Service
