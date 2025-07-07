@@ -30,6 +30,7 @@ registerLocaleData(en);
     SignupComponent,
     LoginComponent,
     HomeComponent,
+    
 
   ],
   imports: [

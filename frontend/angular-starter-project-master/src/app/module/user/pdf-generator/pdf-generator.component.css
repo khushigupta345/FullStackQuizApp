@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pdf-container {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f9fbe7, #e0f7fa);
+  padding: 60px 30px;
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 60px auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  text-align: center;
+}
+
+.pdf-container h2 {
+  font-size: 2.5rem;
+  color: #00796b;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.download-btn {
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  color: #fff;
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:hover {
+  background: linear-gradient(to right, #34e89e, #0f3443);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pdf-container {
+    padding: 40px 20px;
+  }
+
+  .pdf-container h2 {
+    font-size: 2rem;
+  }
+
+  .download-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}

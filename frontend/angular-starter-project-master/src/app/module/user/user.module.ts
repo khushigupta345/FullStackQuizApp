@@ -7,13 +7,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StartquizComponent } from './startquiz/startquiz.component';
 import { ViewMyResultComponent } from './view-my-result/view-my-result.component';
+import { PdfGeneratorComponent } from './pdf-generator/pdf-generator.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     StartquizComponent,
-    ViewMyResultComponent
+    ViewMyResultComponent,
+    PdfGeneratorComponent
   ],
   imports: [
     FormsModule,

@@ -15,6 +15,7 @@
     <ng-container *ngIf="isUserLoggedIn && !isAdminLoggedIn">
       <li><a routerLink="/user/dashboard" (click)="menuOpen = false" routerLinkActive="active">Dashboard</a></li>
       <li><a routerLink="/user/view-test-results" (click)="menuOpen = false" routerLinkActive="active">View Result</a></li>
+            <li><a routerLink="/user/generate-pdf" (click)="menuOpen = false" routerLinkActive="active">Generate pdf Result Report of all Quiz</a></li>
       <li><button (click)="logout()">Logout</button></li>
     </ng-container>
 

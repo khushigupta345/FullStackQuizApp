@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StartquizComponent } from './startquiz/startquiz.component';
 import { ViewQuestionComponent } from '../admin/components/view-question/view-question.component';
 import { ViewMyResultComponent } from './view-my-result/view-my-result.component';
+import { PdfGeneratorComponent } from './pdf-generator/pdf-generator.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
  { path:"dashboard",component:DashboardComponent},
  { path:"take-test/:id",component:StartquizComponent},
    { path:"view-test/:id",component:ViewQuestionComponent},
-   { path:"view-test-results",component:ViewMyResultComponent}
+   { path:"view-test-results",component:ViewMyResultComponent},
+   { path: 'generate-pdf', component: PdfGeneratorComponent }
    
  ];
 
