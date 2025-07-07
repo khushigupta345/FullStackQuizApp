@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(115deg, #a18cd1, #fbc2eb, #fad0c4, #ffd1ff);
@@ -8,6 +9,7 @@ body {
   animation: dreamyBackground 30s ease infinite;
 }
 
+/* Animate background smoothly */
 @keyframes dreamyBackground {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -16,6 +18,7 @@ body {
 
 .table-container {
   width: 95%;
+  max-width: 1200px;
   margin: 60px auto;
   padding: 30px;
   border-radius: 25px;
@@ -24,6 +27,7 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.3);
   animation: fadeIn 1s ease;
+  overflow-x: auto;
 }
 
 table {
@@ -83,10 +87,21 @@ td {
   color: #333;
 }
 
+/* Responsive for smaller screens */
 @media (max-width: 768px) {
+  .table-container {
+    padding: 20px;
+  }
+
   th, td {
-    padding: 12px;
-    font-size: 14px;
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
 
