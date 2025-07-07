@@ -1,11 +1,24 @@
-<td data-label="Result ID">{{ resultData.id }}</td>
-<td data-label="Quiz ID">{{ resultData.quizId }}</td>
-<td data-label="User ID">{{ resultData.userId }}</td>
-<td data-label="Total Questions">{{ resultData.totalQuestion }}</td>
-<td data-label="Correct Answers">{{ resultData.correctAnswers }}</td>
-<td data-label="Percentage">{{ resultData.percentage }}%</td>
-<td data-label="Status">
-  <span [ngClass]="resultData.percentage >= 40 ? 'pass' : 'fail'">
-    {{ resultData.percentage >= 40 ? 'Pass' : 'Fail' }}
-  </span>
-</td>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Result Id</th>
+        <th>Quiz Id</th>
+        <th>User Id</th>
+        <th>Total Questions</th>
+        <th>Correct Answers</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of resultData">
+        <td>{{data.id}}</td>
+        <td>{{data.quizId}}</td>
+        <td>{{data.userId}}</td>
+        <td>{{data.totalQuestion}}</td>
+        <td>{{data.correctAnswers}}</td>
+        <td>{{data.percentage}}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
