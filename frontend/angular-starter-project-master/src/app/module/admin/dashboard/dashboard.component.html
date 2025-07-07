@@ -1,7 +1,7 @@
 <div class="quiz-container">
   <h1 class="animated-heading">Available Quizzes</h1>
 
-  <div class="quiz-list">
+  <div *ngIf="quizzes.length > 0; else noQuizBlock" class="quiz-list">
     <div class="quiz-item" *ngFor="let quiz of quizzes">
       <h2>{{ quiz.title }}</h2>
       <p>{{ quiz.description }}</p>
@@ -14,4 +14,10 @@
       </div>
     </div>
   </div>
+
+  <ng-template #noQuizBlock>
+    <div class="no-quiz">
+      No quizzes available at the moment. Please add some quizzes.
+    </div>
+  </ng-template>
 </div>
