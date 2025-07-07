@@ -1,1 +1,11 @@
 
+package com.example.DTO;
+
+import lombok.Data;
+
+@Data
+public class QuestionAnswerDTO {
+    private String questionText;
+    private String correctOption;
+    private String userAnswer;
+}
