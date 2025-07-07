@@ -125,8 +125,3 @@ User Access:
 - User login will only work if the email used for login matches the one used during signup.
 - Login will fail if attempted without prior signup.
 
-Project Created By:
-Khushi Gupta  
-Full Stack Java + Angular Developer  
-Email: khushigupta345@gmail.com  
-GitHub: https://github.com/khushigupta345
