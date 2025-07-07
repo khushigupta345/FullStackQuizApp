@@ -91,34 +91,46 @@ public QuizDetailsDTO getallqustionbyquiz(Long id) {
 }
 
 public QuizResultDTO submitQuiz(SubmitQuizDTO request) {
-	Quiz quiz=qv.findById(request.getQuizId()).orElseThrow(()->new QuizNotFoundException("quiz not found"));
-	User user=userRepository.findById(request.getUserId()).orElseThrow(()->new UserNotFoundException("user not found"));
-	
-	int correctAnswer=0;
-	for(QuestionResponse response:request.getResponse()) {
-		
-		Question question=qestion.findById(response.getQuestionId()).orElseThrow(()->new QuestionNotFoundException("question not found"));
-		if(question.getCorrectOption().equals(response.getSelectedOption())) {
-			correctAnswer++;
-			System.out.println(correctAnswer);
-			
-		}
-		
-	}
-	int totalQuestion =quiz.getQuestions().size();
+    Quiz quiz = qv.findById(request.getQuizId())
+            .orElseThrow(() -> new QuizNotFoundException("quiz not found"));
 
+    User user = userRepository.findById(request.getUserId())
+            .orElseThrow(() -> new UserNotFoundException("user not found"));
 
-	QuizResult t=new QuizResult();
-	t.setQuiz(quiz);
-	t.setUser(user);
-	t.setTotalQuestion(totalQuestion);
-	t.setCorrectAnswers(correctAnswer);
-	t.setPercentage(Double.parseDouble(String.format("%.3f",((double)correctAnswer/totalQuestion)*100)));
-	
-	return resultRepository.save(t).getDto();
-	
-	
-}
+    int correctAnswer = 0;
+    List<QuestionAnswerDTO> answerDetails = new ArrayList<>();
+
+    for (QuestionResponse response : request.getResponse()) {
+        Question question = qestion.findById(response.getQuestionId())
+                .orElseThrow(() -> new QuestionNotFoundException("question not found"));
+
+        boolean isCorrect = question.getCorrectOption().equalsIgnoreCase(response.getSelectedOption());
+        if (isCorrect) correctAnswer++;
+
+        // Create individual result detail
+        QuestionAnswerDTO qa = new QuestionAnswerDTO();
+        qa.setQuestionText(question.getQuestionText());
+        qa.setCorrectOption(question.getCorrectOption());
+        qa.setUserAnswer(response.getSelectedOption());
+
+        answerDetails.add(qa);
+    }
+
+    QuizResult result = new QuizResult();
+    result.setQuiz(quiz);
+    result.setUser(user);
+    result.setTotalQuestion(quiz.getQuestions().size());
+    result.setCorrectAnswers(correctAnswer);
+    result.setPercentage(Double.parseDouble(String.format("%.2f", ((double) correctAnswer / quiz.getQuestions().size()) * 100)));
+
+    QuizResult saved = resultRepository.save(result);
+    QuizResultDTO dto = saved.getDto();
+
+    //Add question-level answer details
+    dto.setQuestionAnswers(answerDetails);
+
+    return dto;
+
 public List<QuizResultDTO>getallquizresult(){
 	return resultRepository.findAll().stream().map(QuizResult::getDto).toList();
 	
