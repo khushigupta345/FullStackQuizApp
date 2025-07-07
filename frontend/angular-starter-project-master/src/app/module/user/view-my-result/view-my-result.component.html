@@ -1,28 +1,37 @@
+<div class="result-container">
+  <h2 class="title">Quiz Results</h2>
 
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Result id</th>
-            <th>Quiz Id</th>
-          
-            <th>User Id</th>
-            <th>Total Questions</th>
-            <th>Correct Answers</th>
-            <th>Percentage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let data of resultData">
-              
-            <td>{{data.id}}</td>
-            <td>{{data.quizId}}</td>
-        
-            <td>{{data.userId}}</td>
-            <td>{{data.totalQuestion}}</td>
-            <td>{{data.correctAnswers}}</td>
-            <td>{{data.percentage}}%</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Result ID</th>
+          <th>Quiz ID</th>
+          <th>User ID</th>
+          <th>Total Questions</th>
+          <th>Correct Answers</th>
+          <th>Percentage</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of resultData">
+          <td>{{ data.id }}</td>
+          <td>{{ data.quizId }}</td>
+          <td>{{ data.userId }}</td>
+          <td>{{ data.totalQuestion }}</td>
+          <td>{{ data.correctAnswers }}</td>
+          <td>{{ data.percentage }}%</td>
+          <td>
+            <span [ngClass]="{
+              'pass': data.percentage >= 40,
+              'fail': data.percentage < 40
+            }">
+              {{ data.percentage >= 40 ? 'Pass' : 'Fail' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
