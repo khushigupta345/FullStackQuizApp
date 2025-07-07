@@ -8,6 +8,7 @@
         <th>Total Questions</th>
         <th>Correct Answers</th>
         <th>Percentage</th>
+        <th>Status</th> <!-- Add this column -->
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,11 @@
         <td>{{data.totalQuestion}}</td>
         <td>{{data.correctAnswers}}</td>
         <td>{{data.percentage}}%</td>
+        <td>
+          <span [ngClass]="data.percentage >= 40 ? 'pass' : 'fail'">
+            {{ data.percentage >= 40 ? 'Pass' : 'Fail' }}
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>
