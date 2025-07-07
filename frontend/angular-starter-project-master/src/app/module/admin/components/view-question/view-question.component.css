@@ -4,94 +4,138 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #d299c2, #fef9d7, #c9ffbf);
+  background: linear-gradient(120deg, #f093fb, #f5576c, #5ee7df, #b490ca);
   background-size: 400% 400%;
-  animation: bgFlow 25s ease infinite;
+  animation: gradientMove 15s ease infinite;
 }
 
-@keyframes bgFlow {
+@keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
 .quiz-container {
-  width: 90%;
-  max-width: 1300px;
+  width: 95%;
+  max-width: 1200px;
   margin: 50px auto;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
-  border-radius: 25px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1s ease;
 }
 
 .quiz-container h1 {
+  font-size: 3rem;
+  color: #fff;
   text-align: center;
-  font-size: 2.8rem;
-  color: #2c3e50;
   margin-bottom: 40px;
-  position: relative;
-}
-.quiz-container h1::after {
-  content: '';
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(to right, #00c9ff, #92fe9d);
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 2px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .quiz-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 25px;
+  gap: 30px;
 }
 
 .question-card {
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
   padding: 25px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s ease;
-  animation: popIn 0.6s ease;
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+  animation: floatIn 0.7s ease;
+  transition: transform 0.4s ease;
 }
 
 .question-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(255, 255, 255, 0.2);
 }
 
 .question-card h4 {
   font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: #2d2d2d;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .option {
-  margin: 10px 0;
+  margin: 12px 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f0f0f0;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
 }
 
 .option input[type="radio"] {
-  accent-color: #00c9ff;
-  margin-right: 10px;
+  margin-right: 12px;
   transform: scale(1.2);
+  accent-color: #00f2fe;
   cursor: pointer;
 }
 
-.option label {
-  font-size: 1rem;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.2s ease;
+.option:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #00f2fe;
+  color: #ffffff;
 }
 
-.option:hover label {
-  color: #00c9ff;
+.option.selected {
+  border-color: #00f2fe;
+  background-color: rgba(0, 242, 254, 0.1);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+
+.option.correct {
+  background-color: #d6ffec;
+  border-color: #00c853;
+  color: #00c853;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(0, 200, 83, 0.3);
+}
+
+.score-result {
+  margin-top: 30px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  animation: popIn 0.5s ease;
+}
+
+.score-result h2 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.score-result h3 {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.3);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 242, 254, 0.6);
 }
 
 @keyframes fadeIn {
@@ -100,8 +144,13 @@ body {
 }
 
 @keyframes popIn {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes floatIn {
+  0% { transform: translateY(15px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @media (max-width: 768px) {
@@ -115,5 +164,9 @@ body {
 
   .question-card {
     padding: 20px;
+  }
+
+  button {
+    width: 100%;
   }
 }
