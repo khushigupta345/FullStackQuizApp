@@ -1,14 +1,19 @@
 <div class="quiz-container">
-    <h1>Available Quizzes</h1>
-    <div class="quiz-list">
-      <div class="quiz-item" *ngFor="let quiz of quizzes">
-        <h2>{{ quiz.title }}</h2>
-        <p>{{ quiz.description }}</p>
-        <p>{{ getFormattedTime( quiz.time) }}</p>
+  <h1>Available Quizzes</h1>
 
-        
-         <button routerLink="/user/take-test/{{quiz.id}}">Start Quiz</button> 
-        
-</div>
+  <div *ngIf="quizzes.length === 0" class="no-quizzes">
+    <p>No quizzes available. Please check back later.</p>
+  </div>
+
+  <div class="quiz-list" *ngIf="quizzes.length > 0">
+    <div class="quiz-item" *ngFor="let quiz of quizzes">
+      <h2>{{ quiz.title }}</h2>
+      <p>{{ quiz.description }}</p>
+      <p>{{ getFormattedTime(quiz.time) }}</p>
+
+      <div class="quiz-actions">
+        <button [routerLink]="'/user/take-test/' + quiz.id">Start Quiz</button>
+      </div>
     </div>
-  </div> 
+  </div>
+</div>
