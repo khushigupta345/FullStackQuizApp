@@ -1,11 +1,11 @@
-<td data-label="Result ID">{{ data.id }}</td>
-<td data-label="Quiz ID">{{ data.quizId }}</td>
-<td data-label="User ID">{{ data.userId }}</td>
-<td data-label="Total Questions">{{ data.totalQuestion }}</td>
-<td data-label="Correct Answers">{{ data.correctAnswers }}</td>
-<td data-label="Percentage">{{ data.percentage }}%</td>
+<td data-label="Result ID">{{ resultData.id }}</td>
+<td data-label="Quiz ID">{{ resultData.quizId }}</td>
+<td data-label="User ID">{{ resultData.userId }}</td>
+<td data-label="Total Questions">{{ resultData.totalQuestion }}</td>
+<td data-label="Correct Answers">{{ resultData.correctAnswers }}</td>
+<td data-label="Percentage">{{ resultData.percentage }}%</td>
 <td data-label="Status">
-  <span [ngClass]="data.percentage >= 40 ? 'pass' : 'fail'">
-    {{ data.percentage >= 40 ? 'Pass' : 'Fail' }}
+  <span [ngClass]="resultData.percentage >= 40 ? 'pass' : 'fail'">
+    {{ resultData.percentage >= 40 ? 'Pass' : 'Fail' }}
   </span>
 </td>
