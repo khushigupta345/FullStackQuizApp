@@ -1,44 +1,22 @@
-
 <div class="quiz-container">
-  <div>
-    <div class="timer">Time Remaining: {{ getFormattedTime() }}</div>
-  </div>
+  <div class="timer">Time Remaining: {{ getFormattedTime() }}</div>
 
   <h1>Available Questions</h1>
 
   <form (ngSubmit)="submitAnswer()">
     <div class="quiz-list">
-      <div *ngFor="let question of questions" class="question">
+      <div *ngFor="let question of questions" class="quiz-item">
         <h4>{{ question.questionText }}</h4>
 
-        <div>
+        <div class="option" *ngFor="let opt of ['optionA', 'optionB', 'optionC', 'optionD']">
           <label>
-            <input type="radio" name="question{{ question.id }}" (change)="onAnswerChange(question.id, question.optionA)" />
-            {{ question.optionA }}
+            <input type="radio" 
+                   name="question{{ question.id }}" 
+                   [value]="question[opt]" 
+                   (change)="onAnswerChange(question.id, question[opt])" />
+            {{ question[opt] }}
           </label>
         </div>
-
-        <div>
-          <label>
-            <input type="radio" name="question{{ question.id }}" (change)="onAnswerChange(question.id, question.optionB)" />
-            {{ question.optionB }}
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input type="radio" name="question{{ question.id }}" (change)="onAnswerChange(question.id, question.optionC)" />
-            {{ question.optionC }}
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input type="radio" name="question{{ question.id }}" (change)="onAnswerChange(question.id, question.optionD)" />
-            {{ question.optionD }}
-          </label>
-        </div>
-
       </div>
     </div>
 
