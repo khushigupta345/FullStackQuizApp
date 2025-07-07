@@ -8,6 +8,12 @@ body {
   background-size: 400% 400%;
   animation: bgAnimation 20s ease infinite;
   overflow-x: hidden;
+
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 @keyframes bgAnimation {
@@ -18,7 +24,7 @@ body {
 
 .quiz-container {
   max-width: 1200px;
-  margin: 60px auto;
+  margin: auto;  /* pehle margin: 60px auto; tha usko replace karo */
   padding: 50px;
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.3);
