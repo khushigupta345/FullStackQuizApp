@@ -30,7 +30,7 @@ public class QuizResultDTO {
 
     private Long quizId;
 
-
+private List<QuestionAnswerDTO> questionAnswers;
    
     private Long userId;
 }
