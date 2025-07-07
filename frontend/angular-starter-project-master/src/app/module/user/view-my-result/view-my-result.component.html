@@ -1,11 +1,30 @@
-<td data-label="Result ID">{{ resultData.id }}</td>
-<td data-label="Quiz ID">{{ resultData.quizId }}</td>
-<td data-label="User ID">{{ resultData.userId }}</td>
-<td data-label="Total Questions">{{ resultData.totalQuestion }}</td>
-<td data-label="Correct Answers">{{ resultData.correctAnswers }}</td>
-<td data-label="Percentage">{{ resultData.percentage }}%</td>
-<td data-label="Status">
-  <span [ngClass]="resultData.percentage >= 40 ? 'pass' : 'fail'">
-    {{ resultData.percentage >= 40 ? 'Pass' : 'Fail' }}
-  </span>
-</td>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Result ID</th>
+        <th>Quiz ID</th>
+        <th>User ID</th>
+        <th>Total Questions</th>
+        <th>Correct Answers</th>
+        <th>Percentage</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="resultData">
+        <td data-label="Result ID">{{ resultData.id }}</td>
+        <td data-label="Quiz ID">{{ resultData.quizId }}</td>
+        <td data-label="User ID">{{ resultData.userId }}</td>
+        <td data-label="Total Questions">{{ resultData.totalQuestion }}</td>
+        <td data-label="Correct Answers">{{ resultData.correctAnswers }}</td>
+        <td data-label="Percentage">{{ resultData.percentage }}%</td>
+        <td data-label="Status">
+          <span [ngClass]="resultData.percentage >= 40 ? 'pass' : 'fail'">
+            {{ resultData.percentage >= 40 ? 'Pass' : 'Fail' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
