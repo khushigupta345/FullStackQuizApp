@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { StorageService } from 'src/app/storage.service';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,8 +11,8 @@ import { StorageService } from 'src/app/storage.service';
 })
 export class QuizService {
 
-    private apiUrl = 'https://fullstackquizapp.onrender.com';
-    
+    // private apiUrl = 'https://fullstackquizapp.onrender.com';
+    private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private storageService: StorageService) {}
 

@@ -2,7 +2,7 @@ package com.example.serviceimpl;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
+
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +18,29 @@ import com.example.Exception.QuestionNotFoundException;
 import com.example.Exception.QuizNotFoundException;
 import com.example.Exception.UserNotFoundException;
 import com.example.entity.Question;
+import com.example.entity.QuestionAnswer;
 import com.example.entity.Quiz;
 import com.example.entity.QuizResult;
 import com.example.entity.User;
+import com.example.repository.QuestionAnswerRepository;
 import com.example.repository.QuestionRepository;
 import com.example.repository.QuizRepository;
 import com.example.repository.QuizResultRepository;
 import com.example.repository.UserRepository;
 import com.example.service.QuizService;
-import com.example.DTO.QuestionAnswerDTO;
+
 import java.util.ArrayList;
-import jakarta.persistence.EntityManager;
+
 import jakarta.transaction.Transactional;
 @Service
 public class QuizServiceImpl implements QuizService {
 	@Autowired
 	private UserRepository userRepository;
-
+@Autowired
+private QuestionAnswerRepository qaRepo;
 	@Autowired
 	private QuizResultRepository resultRepository;
-	@Autowired
-	private EntityManager entityManager;
+
 @Autowired
 private QuizRepository qv;
 @Autowired
@@ -99,7 +101,16 @@ public QuizResultDTO submitQuiz(SubmitQuizDTO request) {
             .orElseThrow(() -> new UserNotFoundException("user not found"));
 
     int correctAnswer = 0;
-    List<QuestionAnswerDTO> answerDetails = new ArrayList<>();
+
+    QuizResult result = new QuizResult();
+    result.setQuiz(quiz);
+    result.setUser(user);
+    result.setTotalQuestion(quiz.getQuestions().size());
+
+    
+    QuizResult savedResult = resultRepository.save(result);
+
+    List<QuestionAnswer> answersToSave = new ArrayList<>();
 
     for (QuestionResponse response : request.getResponse()) {
         Question question = qestion.findById(response.getQuestionId())
@@ -108,30 +119,25 @@ public QuizResultDTO submitQuiz(SubmitQuizDTO request) {
         boolean isCorrect = question.getCorrectOption().equalsIgnoreCase(response.getSelectedOption());
         if (isCorrect) correctAnswer++;
 
-        // Create individual result detail
-        QuestionAnswerDTO qa = new QuestionAnswerDTO();
-        qa.setQuestionText(question.getQuestionText());
-        qa.setCorrectOption(question.getCorrectOption());
-        qa.setUserAnswer(response.getSelectedOption());
+        QuestionAnswer qa = QuestionAnswer.builder()
+                .questionText(question.getQuestionText())
+                .correctOption(question.getCorrectOption())
+                .userAnswer(response.getSelectedOption())
+                .quizResult(savedResult)
+                .build();
 
-        answerDetails.add(qa);
+        answersToSave.add(qa);
     }
 
-    QuizResult result = new QuizResult();
-    result.setQuiz(quiz);
-    result.setUser(user);
-    result.setTotalQuestion(quiz.getQuestions().size());
-    result.setCorrectAnswers(correctAnswer);
-    result.setPercentage(Double.parseDouble(String.format("%.2f", ((double) correctAnswer / quiz.getQuestions().size()) * 100)));
+    qaRepo.saveAll(answersToSave); 
+    savedResult.setCorrectAnswers(correctAnswer);
+    savedResult.setPercentage(Double.parseDouble(String.format("%.2f", ((double) correctAnswer / quiz.getQuestions().size()) * 100)));
+    savedResult.setQuestionAnswers(answersToSave); 
+    QuizResult finalResult = resultRepository.save(savedResult);
 
-    QuizResult saved = resultRepository.save(result);
-    QuizResultDTO dto = saved.getDto();
-
-    //Add question-level answer details
-    dto.setQuestionAnswers(answerDetails);
-
-    return dto;
+    return finalResult.getDto();  
 }
+
 public List<QuizResultDTO>getallquizresult(){
 	return resultRepository.findAll().stream().map(QuizResult::getDto).toList();
 	
