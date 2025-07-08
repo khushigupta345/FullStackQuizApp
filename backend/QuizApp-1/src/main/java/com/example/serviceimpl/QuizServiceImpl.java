@@ -107,27 +107,34 @@ public QuizResultDTO submitQuiz(SubmitQuizDTO request) {
     result.setUser(user);
     result.setTotalQuestion(quiz.getQuestions().size());
 
-    
-    QuizResult savedResult = resultRepository.save(result);
-
-    List<QuestionAnswer> answersToSave = new ArrayList<>();
+    List<QuestionAnswer> answers = new ArrayList<>();
 
     for (QuestionResponse response : request.getResponse()) {
         Question question = qestion.findById(response.getQuestionId())
                 .orElseThrow(() -> new QuestionNotFoundException("question not found"));
 
-        boolean isCorrect = question.getCorrectOption().equalsIgnoreCase(response.getSelectedOption());
-        if (isCorrect) correctAnswer++;
+        if (question.getCorrectOption().equalsIgnoreCase(response.getSelectedOption())) {
+            correctAnswer++;
+        }
 
-        QuestionAnswer qa = QuestionAnswer.builder()
-                .questionText(question.getQuestionText())
-                .correctOption(question.getCorrectOption())
-                .userAnswer(response.getSelectedOption())
-                .quizResult(savedResult)
-                .build();
+        QuestionAnswer qa = new QuestionAnswer();
+        qa.setQuestionText(question.getQuestionText());
+        qa.setCorrectOption(question.getCorrectOption());
+        qa.setUserAnswer(response.getSelectedOption());
+        qa.setQuizResult(result); 
 
-        answersToSave.add(qa);
+        answers.add(qa);
     }
+
+    result.setCorrectAnswers(correctAnswer);
+    result.setPercentage(Double.parseDouble(String.format("%.2f", ((double) correctAnswer / quiz.getQuestions().size()) * 100)));
+
+    result.setQuestionAnswers(answers); 
+
+    QuizResult saved = resultRepository.save(result);
+
+    return saved.getDto();
+}
 
     qaRepo.saveAll(answersToSave); 
     savedResult.setCorrectAnswers(correctAnswer);
